@@ -2,7 +2,7 @@
 
 ## 发布前
 
-- [ ] 确认GitHub账号/组织与`cn-smart-routing`仓库名；
+- [ ] 确认GitHub账号/组织与`shadowrocket-cn-smart-routing`仓库名；
 - [ ] 检查Git author姓名和邮箱是否适合公开；
 - [ ] 运行静态验证；
 - [ ] 运行17个远程规则URL验证；

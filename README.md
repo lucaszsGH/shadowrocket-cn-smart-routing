@@ -1,8 +1,10 @@
-# CN Smart Routing
+# Shadowrocket CN Smart Routing
 
 **English** | [简体中文](README.zh-CN.md)
 
 Status: public release candidate. Current version: `0.1.0-rc.1`.
+
+An open-source **Shadowrocket configuration for mainland China**: mainland apps, banking, office tools, video, games and local-network traffic stay direct, while ChatGPT, Claude, Gemini, GitHub and other overseas services use your own manually selected proxy node.
 
 ![CN Smart Routing keeps mainland apps direct and overseas services proxied](assets/intro/cn-smart-routing-hero-en.png)
 
@@ -61,10 +63,10 @@ Download [`configs/shadowrocket/cn-smart-routing.conf`](configs/shadowrocket/cn-
 
 Import it from the Shadowrocket **Config** page using Files, iCloud Drive, AirDrop, or a GitHub Raw URL.
 
-After this repository is published, the Raw URL format will be:
+Canonical auto-updating Raw URL:
 
 ```text
-https://raw.githubusercontent.com/lucaszsGH/cn-smart-routing/main/configs/shadowrocket/cn-smart-routing.conf
+https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/configs/shadowrocket/cn-smart-routing.conf
 ```
 
 ### 3. Use Configuration mode
