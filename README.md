@@ -4,6 +4,10 @@
 
 Status: public release candidate. Current version: `0.1.0-rc.1`.
 
+[![Validate Shadowrocket config](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml/badge.svg)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml)
+[![Latest release](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?include_prereleases&label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
+[![GPL-2.0 license](https://img.shields.io/github/license/lucaszsGH/shadowrocket-cn-smart-routing)](LICENSE)
+
 An open-source **Shadowrocket configuration for mainland China**: mainland apps, banking, office tools, video, games and local-network traffic stay direct, while ChatGPT, Claude, Gemini, GitHub and other overseas services use your own manually selected proxy node.
 
 ![CN Smart Routing keeps mainland apps direct and overseas services proxied](assets/intro/cn-smart-routing-hero-en.png)
@@ -31,6 +35,21 @@ Import the config -> select your own node -> use Configuration mode
 ```
 
 ![Three-step CN Smart Routing setup while node choice stays with the user](assets/intro/cn-smart-routing-workflow-en.png)
+
+## How this project is different
+
+This repository is intentionally narrower than a general rule library or an ad-blocking suite.
+
+| Design choice | CN Smart Routing |
+|---|---|
+| Primary user | Mainland-China Shadowrocket users who already have their own subscription |
+| Daily goal | Keep the VPN enabled while mainland traffic stays direct |
+| Node control | One node, selected manually on the Shadowrocket home screen |
+| Default scope | Mainland office, banking, payment, media, games and LAN; overseas AI and development |
+| Security surface | No bundled nodes, subscription URL, MITM, scripts or default ad blocking |
+| Validation | Repository checks cover structure, priority, remote sources and common credential patterns |
+
+Comparable projects often optimize for a different job: a large upstream rule ecosystem, many routing modes, aggressive ad blocking, or a different country. See the [neutral project comparison](docs/project-comparison.md) before choosing.
 
 ## What it does
 
@@ -178,6 +197,8 @@ The configuration references public rule lists from [`blackmatrix7/ios_rule_scri
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). Rule changes should preserve the priority order and include validation evidence.
+
+Use the issue forms for a [routing problem](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=routing-problem.yml) or a [rule request](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=rule-request.yml). Never paste subscription URLs, node details, credentials or full traffic logs.
 
 ## License
 

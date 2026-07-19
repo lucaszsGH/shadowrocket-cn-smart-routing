@@ -25,6 +25,12 @@
     "assets/intro/cn-smart-routing-hero-en.svg",
     "assets/intro/cn-smart-routing-hero-zh-CN.svg",
     "assets/intro/cn-smart-routing-workflow-en.svg",
-    "assets/intro/cn-smart-routing-workflow-zh-CN.svg"
+    "assets/intro/cn-smart-routing-workflow-zh-CN.svg",
+    "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
+    "docs/project-comparison.md",
+    "docs/zh-cn/project-comparison.md",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/routing-problem.yml",
+    ".github/ISSUE_TEMPLATE/rule-request.yml"
   ]
 }
