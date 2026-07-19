@@ -1,0 +1,30 @@
+{
+  "project": "CN Smart Routing",
+  "version": "0.1.0-rc.1",
+  "audience": {
+    "terminal_user": "A mainland-China Shadowrocket user who already has a proxy subscription",
+    "use_scenario": "Reviewing a public GitHub repository before importing a routing configuration",
+    "desired_belief": "The configuration is transparent, mainland-first, node-independent, and manually controlled",
+    "next_action": "Inspect the three-step setup and import the configuration after understanding the limits"
+  },
+  "consumer_value": [
+    "Mainland and local-network traffic is routed directly",
+    "AI, developer, and unmatched overseas traffic follows the manually selected home-screen node",
+    "No subscription, node, credential, HTTPS decryption, or automatic country selection is bundled"
+  ],
+  "must_not_claim": [
+    "Zero latency impact on every device or network",
+    "Guaranteed acceptance by every banking app",
+    "Prevention of account restrictions or platform risk controls",
+    "Verified Apple TV support",
+    "Automatic iCloud synchronization"
+  ],
+  "public_surfaces": [
+    "README.md",
+    "README.zh-CN.md",
+    "assets/intro/cn-smart-routing-hero-en.svg",
+    "assets/intro/cn-smart-routing-hero-zh-CN.svg",
+    "assets/intro/cn-smart-routing-workflow-en.svg",
+    "assets/intro/cn-smart-routing-workflow-zh-CN.svg"
+  ]
+}
