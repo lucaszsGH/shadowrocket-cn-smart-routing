@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- 增加国内实时通信保障层：显式覆盖飞书 WSS/会议信令、腾讯会议、妙记/会记及相关录制同步域名；
+- 保持国内媒体流 `DIRECT`、未知海外流量 `PROXY` 的边界，不使用宽泛 UDP 直连或易漂移的个人用户媒体 IP 表；
+- 增加飞书、腾讯会议和微信语音的真机测试矩阵、最小脱敏记录格式及静态回归校验；
 - 公开仓库更名为`shadowrocket-cn-smart-routing`，把正式软件名放入默认搜索字段；
 - README 首屏补充“Shadowrocket configuration for mainland China / Shadowrocket 小火箭配置与分流规则”的自然语言定位；
 - 更新 GitHub 描述、Topics 和 Raw 导入地址，提升 Shadowrocket、config、rules、China routing 等检索入口；

@@ -9,6 +9,7 @@
   },
   "consumer_value": [
     "Mainland and local-network traffic is routed directly",
+    "Critical mainland chat, WSS signaling, meeting, and recording-sync domains are routed directly before the fallback",
     "AI, developer, and unmatched overseas traffic follows the manually selected home-screen node",
     "No subscription, node, credential, HTTPS decryption, or automatic country selection is bundled"
   ],
@@ -29,6 +30,7 @@
     "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
     "docs/project-comparison.md",
     "docs/zh-cn/project-comparison.md",
+    "docs/zh-cn/realtime-communications.md",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/routing-problem.yml",
     ".github/ISSUE_TEMPLATE/rule-request.yml"

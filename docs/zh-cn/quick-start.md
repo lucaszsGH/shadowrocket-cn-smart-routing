@@ -50,10 +50,13 @@
 
 1. 百度或常用国内网站；
 2. 微信、飞书或钉钉；
-3. 一个银行App首页；
-4. 一个国内视频；
-5. ChatGPT或Claude；
-6. GitHub；
-7. 局域网设备或打印机。
+3. 一次飞书或微信语音通话；
+4. 一个银行App首页；
+5. 一个国内视频；
+6. ChatGPT或Claude；
+7. GitHub；
+8. 局域网设备或打印机。
 
 若国内服务异常，先切回原配置或关闭Shadowrocket，再查看[排查指南](troubleshooting.md)。
+
+涉及飞书会议、妙记、腾讯会议、会记或微信语音时，使用[国内实时通信与会议分流测试矩阵](realtime-communications.md)。

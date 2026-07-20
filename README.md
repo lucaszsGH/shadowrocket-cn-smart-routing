@@ -111,7 +111,7 @@ Menu names may vary by Shadowrocket and OS version. The detailed walkthrough is 
 
 | Traffic | Examples | Route |
 |---|---|---|
-| Mainland office | Feishu, DingTalk, WeChat, WeCom | `DIRECT` |
+| Mainland office and real-time communication | Feishu, Minutes, Tencent Meeting, WeChat, WeCom | `DIRECT` |
 | Mainland banking and payments | major banks, UnionPay, Alipay | `DIRECT` |
 | Mainland media and games | Bilibili, Douyin, Tencent, NetEase | `DIRECT` |
 | Apple services in mainland China | Apple China, iCloud, Guizhou-Cloud related services | `DIRECT` |
@@ -138,6 +138,7 @@ This repository currently ships **Shadowrocket format only**. Do not import the 
 
 - Transparent rule-based routing for Shadowrocket Configuration mode.
 - Mainland-first direct routing and overseas proxy routing.
+- Mainland chat, WSS signaling, meetings and recording-sync domains routed directly first.
 - Manual home-screen node selection.
 - Static checks for structure, rule priority, remote sources and obvious credential patterns.
 
@@ -147,6 +148,8 @@ This repository currently ships **Shadowrocket format only**. Do not import the 
 - Node quality, region suitability and account access.
 - Sleep/wake, Wi-Fi/5G switching, captive portals, meetings and long sessions on each device.
 - Apple TV behaviour and iCloud synchronization.
+
+See the Chinese-first [real-time communication routing and test guide](docs/zh-cn/realtime-communications.md) for Feishu meetings, Minutes, Tencent Meeting and WeChat calls.
 
 ### Not promised
 

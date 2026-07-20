@@ -109,7 +109,7 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 
 | 流量 | 代表服务 | 路由 |
 |---|---|---|
-| 国内办公 | 飞书、钉钉、微信、企业微信 | `DIRECT` |
+| 国内办公与实时通信 | 飞书、妙记、腾讯会议、微信、企业微信 | `DIRECT` |
 | 银行支付 | 常见商业银行、银联、支付宝 | `DIRECT` |
 | 国内影音和游戏 | B 站、抖音、腾讯、网易 | `DIRECT` |
 | Apple 中国大陆服务 | Apple 中国、iCloud、云上贵州相关服务 | `DIRECT` |
@@ -136,6 +136,7 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 
 - Shadowrocket“配置”模式下的透明规则分流；
 - 国内优先直连、海外优先代理；
+- 国内聊天、WSS 信令、会议和录制同步关键域名优先直连；
 - 首页手动选择节点；
 - 对配置结构、规则优先级、远程来源和常见凭证形状做静态检查。
 
@@ -145,6 +146,8 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 - 节点质量、地区适配和账号访问；
 - 每台设备的睡眠唤醒、Wi-Fi/5G 切换、门户网络、在线会议和长时间运行；
 - Apple TV 行为和 iCloud 同步。
+
+飞书会议、妙记、腾讯会议、会记和微信语音的覆盖逻辑及真机测试方法，详见[国内实时通信与会议分流](docs/zh-cn/realtime-communications.md)。
 
 ### 不承诺
 

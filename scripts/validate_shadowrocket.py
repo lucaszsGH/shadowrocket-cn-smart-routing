@@ -17,6 +17,9 @@ REQUIRED_LINES = {
     "dns-direct-fallback-proxy = false",
     "udp-policy-not-supported-behaviour = REJECT",
     "block-quic = all-proxy",
+    "DOMAIN-SUFFIX,bytevcloud.com,DIRECT",
+    "DOMAIN-SUFFIX,meeting.tencent.com,DIRECT",
+    "DOMAIN-SUFFIX,wemeet.qq.com,DIRECT",
     "GEOIP,CN,DIRECT",
     "FINAL,PROXY",
 }
@@ -88,6 +91,9 @@ def validate_static(text: str) -> list[str]:
         "anthropic.com": "PROXY",
         "github.com": "PROXY",
         "feishu.cn": "DIRECT",
+        "bytevcloud.com": "DIRECT",
+        "meeting.tencent.com": "DIRECT",
+        "wemeet.qq.com": "DIRECT",
         "weixin.qq.com": "DIRECT",
         "alipay.com": "DIRECT",
         "icbc.com.cn": "DIRECT",
@@ -96,6 +102,36 @@ def validate_static(text: str) -> list[str]:
         needle = f"DOMAIN-SUFFIX,{domain},{policy}"
         if needle not in rules:
             errors.append(f"missing smoke-test route: {needle}")
+
+    realtime_rules = [
+        "DOMAIN-SUFFIX,feishu.cn,DIRECT",
+        "DOMAIN-SUFFIX,bytevcloud.com,DIRECT",
+        "DOMAIN-SUFFIX,meeting.tencent.com,DIRECT",
+        "DOMAIN-SUFFIX,wemeet.qq.com,DIRECT",
+        "DOMAIN-SUFFIX,weixin.qq.com,DIRECT",
+    ]
+    if "GEOIP,CN,DIRECT" in rules:
+        cn_fallback = rules.index("GEOIP,CN,DIRECT")
+        for rule in realtime_rules:
+            if rule in rules and rules.index(rule) > cn_fallback:
+                errors.append(f"realtime rule must precede GEOIP,CN fallback: {rule}")
+
+    precedence_pairs = [
+        ("DOMAIN-SUFFIX,meeting.qq.com,DIRECT", "DOMAIN-SUFFIX,qq.com,DIRECT"),
+        ("DOMAIN-SUFFIX,wemeet.qq.com,DIRECT", "DOMAIN-SUFFIX,qq.com,DIRECT"),
+        ("DOMAIN-SUFFIX,weixin.qq.com,DIRECT", "DOMAIN-SUFFIX,qq.com,DIRECT"),
+        ("DOMAIN-SUFFIX,wxwork.qq.com,DIRECT", "DOMAIN-SUFFIX,qq.com,DIRECT"),
+    ]
+    for specific, broad in precedence_pairs:
+        if specific in rules and broad in rules and rules.index(specific) > rules.index(broad):
+            errors.append(f"specific realtime rule must precede broad rule: {specific}")
+
+    unsafe_udp_fallbacks = {
+        "PROTOCOL,UDP,DIRECT",
+        "PROTOCOL,UDP,PROXY",
+    }
+    for rule in unsafe_udp_fallbacks.intersection(rules):
+        errors.append(f"broad UDP routing is not allowed: {rule}")
 
     return errors
 
