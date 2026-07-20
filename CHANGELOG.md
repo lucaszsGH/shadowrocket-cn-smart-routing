@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- 增加中文优先的 Pull Request 模板，要求说明用户场景、预期路由、真机证据、风险回退与隐私检查；
+- 增加 CODEOWNERS、仓库级安全校验脚本及 CI 门禁，为公开共创提供可追踪的维护者复核；
+- 补充贡献流程、条件式私密漏洞报告指引，以及 `main` Ruleset 与 Private vulnerability reporting 的管理员设置清单；
 - 公开仓库更名为`shadowrocket-cn-smart-routing`，把正式软件名放入默认搜索字段；
 - README 首屏补充“Shadowrocket configuration for mainland China / Shadowrocket 小火箭配置与分流规则”的自然语言定位；
 - 更新 GitHub 描述、Topics 和 Raw 导入地址，提升 Shadowrocket、config、rules、China routing 等检索入口；

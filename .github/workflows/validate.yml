@@ -17,4 +17,5 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 scripts/validate_shadowrocket.py
+      - run: python3 scripts/validate_repository.py
       - run: python3 scripts/render-intro-assets.py
