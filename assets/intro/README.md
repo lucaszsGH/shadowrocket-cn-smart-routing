@@ -9,6 +9,13 @@ This folder contains the bilingual GitHub introduction system for CN Smart Routi
 
 The SVG files are editable sources. PNG files are exact 1600 × 900 README exports.
 
+GitHub social preview:
+
+- `shadowrocket-cn-smart-routing-social-preview.svg`
+- `shadowrocket-cn-smart-routing-social-preview.png`
+
+The social preview is an exact 1280 × 640 export for the repository Settings page. It is not embedded in the README.
+
 ## Visual roles
 
 - Hero: the consumer value proposition—keep the proxy on, keep mainland traffic direct, and keep node choice manual.

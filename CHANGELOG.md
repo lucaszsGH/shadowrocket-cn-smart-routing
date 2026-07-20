@@ -6,6 +6,9 @@
 - README 首屏补充“Shadowrocket configuration for mainland China / Shadowrocket 小火箭配置与分流规则”的自然语言定位；
 - 更新 GitHub 描述、Topics 和 Raw 导入地址，提升 Shadowrocket、config、rules、China routing 等检索入口；
 - 保留产品名`CN Smart Routing`以及既有配置文件名，避免为了搜索破坏用户使用习惯。
+- 增加 DeepWheel 1280×640 GitHub Social Preview，并纳入本地与 CI 尺寸校验；
+- 增加中英文相似项目定位对比，说明本项目与大规模规则库、去广告套件和上游规则生态的边界；
+- 增加 CI / Release / License 徽章与隐私保护型 Issue 表单，降低首次判断和反馈成本。
 
 ## 0.1.0-rc.1 - 2026-07-19
 

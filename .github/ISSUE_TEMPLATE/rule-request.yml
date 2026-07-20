@@ -1,0 +1,47 @@
+name: Rule request
+description: Suggest a public mainland DIRECT or overseas PROXY rule
+title: "[Rule request] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest only public service domains. Do not share subscriptions, nodes, credentials, private hosts or full logs.
+  - type: dropdown
+    id: route
+    attributes:
+      label: Proposed route
+      options:
+        - DIRECT
+        - PROXY
+    validations:
+      required: true
+  - type: input
+    id: service
+    attributes:
+      label: Public service name
+    validations:
+      required: true
+  - type: textarea
+    id: domains
+    attributes:
+      label: Public domains
+      description: One public domain per line. Do not include URLs with tokens or query strings.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this belongs in the shared configuration
+      description: Explain whether this is a mainland service, overseas service or local-network dependency.
+    validations:
+      required: true
+  - type: checkboxes
+    id: evidence
+    attributes:
+      label: Submission check
+      options:
+        - label: These are public domains and the report contains no subscriptions, nodes, credentials, public IPs or full logs.
+          required: true
+        - label: I understand that a rule request still requires validation and may not be merged.
+          required: true

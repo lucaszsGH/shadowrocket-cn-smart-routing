@@ -1,0 +1,62 @@
+name: Routing problem
+description: Report a mainland DIRECT or overseas PROXY routing problem without sharing private data
+title: "[Routing] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the configuration. Do not paste subscription URLs, node details, credentials, public IP addresses or full Shadowrocket logs.
+  - type: dropdown
+    id: route
+    attributes:
+      label: Expected route
+      options:
+        - Mainland service should use DIRECT
+        - Overseas service should use PROXY
+        - Local network service should use DIRECT
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - iPhone or iPad
+        - macOS
+        - Other or not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Configuration version or commit
+      placeholder: 0.1.0-rc.1 or a short Git commit
+    validations:
+      required: true
+  - type: input
+    id: service
+    attributes:
+      label: Service or public domain
+      description: Share only a public service name or public domain, never a private host.
+      placeholder: Example service or example.com
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What happened
+      description: Describe the visible symptom and the route shown by Shadowrocket. Redact all personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks already completed
+      placeholder: Config mode enabled; current Raw file imported; reproduced on Wi-Fi or 5G
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed subscription URLs, node details, credentials, public IPs and full logs.
+          required: true
