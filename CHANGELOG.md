@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- 合并 Mac、iPhone 和公开仓库为唯一 `cn-smart-routing.conf`，设备差异交给 Shadowrocket 本身管理；
+- 通用大陆覆盖从精选 China 规则升级为 ChinaMax，覆盖银行、支付、运营商、影音、游戏、域名和 IP；
+- 去除 ChinaMax 已包含的钉钉、微信、字节、腾讯、网易和 TapTap 重复远程引用，保留关键实时通信显式规则和 Steam 国区补充；
+- 增加 Copilot、Docker、npm、Python、JetBrains、Notion、Slack、Teams、Discord 和 OneDrive 的前置代理规则；
+- 版本升级为 `0.2.0-rc.1`，并保留银行 App 可能检测系统 VPN 的明确限制；
+- 将运行时第三方规则锁定到已验证提交，避免上游移动分支在未发布新版本时改变用户分流；
+- 增加最小 `manifest.json`，记录版本、配置校验值、支持范围与固定上游版本；
 - 对照 GitHub 现有飞书规则补齐 8 个上游未覆盖的稳定域名后缀，并记录许可证与固定提交来源；
 - 增加可选实时通信上游审计：比较飞书域名覆盖与腾讯会议官方 JSON 防火墙清单，不直接引入无许可证或易漂移的大型媒体 IP 表；
 - 增加国内实时通信保障层：显式覆盖飞书 WSS/会议信令、腾讯会议、妙记/会记及相关录制同步域名；

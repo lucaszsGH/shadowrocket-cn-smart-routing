@@ -2,10 +2,13 @@
 
 ## 发布前
 
+- [ ] `manifest.json` 的版本、配置路径、SHA-256 与 `VERSION` 及正式配置一致
+- [ ] 所有运行时第三方规则均锁定到已审查提交，不跟随 `master` 或 `main`
+
 - [ ] 确认GitHub账号/组织与`shadowrocket-cn-smart-routing`仓库名；
 - [ ] 检查Git author姓名和邮箱是否适合公开；
 - [ ] 运行静态验证；
-- [ ] 运行17个远程规则URL验证；
+- [ ] 运行20个远程规则URL验证；
 - [ ] 运行敏感信息扫描；
 - [ ] 确认没有订阅URL、节点、二维码或个人路径；
 - [ ] 核对`VERSION`、配置注释、Changelog和中英文README版本一致；

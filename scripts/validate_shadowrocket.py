@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -13,6 +14,14 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs" / "shadowrocket" / "cn-smart-routing.conf"
+VERSION_FILE = ROOT / "VERSION"
+MANIFEST = ROOT / "manifest.json"
+BLACKMATRIX_COMMIT = "e69663d642551aa3e0164a656179335a896127ad"
+BLACKMATRIX_BASE = (
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/"
+    f"{BLACKMATRIX_COMMIT}/"
+)
+FEISHU_REFERENCE_COMMIT = "6baf0076c10bc87b9f9d30221254fdbd97f0f221"
 REQUIRED_SECTIONS = ["General", "Proxy", "Proxy Group", "Rule", "Host"]
 REQUIRED_LINES = {
     "dns-direct-fallback-proxy = false",
@@ -29,6 +38,12 @@ REQUIRED_LINES = {
     "DOMAIN-SUFFIX,volcvideo.com,DIRECT",
     "DOMAIN-SUFFIX,meeting.tencent.com,DIRECT",
     "DOMAIN-SUFFIX,wemeet.qq.com,DIRECT",
+    f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/Copilot/Copilot.list,PROXY,force-remote-dns",
+    f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/Notion/Notion.list,PROXY,force-remote-dns",
+    f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/Slack/Slack.list,PROXY,force-remote-dns",
+    f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/Teams/Teams.list,PROXY,force-remote-dns",
+    f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax.list,DIRECT",
+    f"DOMAIN-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax_Domain.list,DIRECT",
     "GEOIP,CN,DIRECT",
     "FINAL,PROXY",
 }
@@ -39,11 +54,14 @@ FORBIDDEN_PATTERNS = [
     r"(?i)subscription[-_ ]?url\s*=",
 ]
 UPSTREAM_URLS = {
-    "feishu": "https://raw.githubusercontent.com/icewithcola/Clash-Rule-Set/master/feishu.yaml",
-    "bytedance": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ByteDance/ByteDance.list",
-    "tencent": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Tencent/Tencent.list",
-    "tencent_domains": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Tencent/Tencent_Domain.list",
-    "wechat": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list",
+    "feishu": (
+        "https://raw.githubusercontent.com/icewithcola/Clash-Rule-Set/"
+        f"{FEISHU_REFERENCE_COMMIT}/feishu.yaml"
+    ),
+    "chinamax": f"{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax.list",
+    "chinamax_domains": (
+        f"{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax_Domain.list"
+    ),
     "tencent_meeting": "https://cdn.meeting.tencent.com/upload/firewall/domain_ip.json",
 }
 
@@ -94,10 +112,40 @@ def validate_static(text: str) -> list[str]:
         for line in rules
         if line.startswith(("RULE-SET,", "DOMAIN-SET,"))
     ]
-    if len(remote) != 17:
-        errors.append(f"expected 17 remote rule references, found {len(remote)}")
-    if any(not url.startswith("https://raw.githubusercontent.com/") for url in remote):
-        errors.append("all remote rule references must use HTTPS GitHub Raw URLs")
+    if len(remote) != 20:
+        errors.append(f"expected 20 remote rule references, found {len(remote)}")
+    if any(not url.startswith(BLACKMATRIX_BASE) for url in remote):
+        errors.append("all runtime rule references must use the pinned Blackmatrix commit")
+    if any("/master/" in url or "/main/" in url for url in remote):
+        errors.append("runtime rule references must not follow a moving branch")
+
+    chinamax_rules = {
+        f"DOMAIN-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax_Domain.list,DIRECT",
+        f"RULE-SET,{BLACKMATRIX_BASE}rule/Shadowrocket/ChinaMax/ChinaMax.list,DIRECT",
+    }
+    first_chinamax = min(
+        (rules.index(rule) for rule in chinamax_rules if rule in rules),
+        default=len(rules),
+    )
+    for rule in rules:
+        if rule.startswith(("RULE-SET,", "DOMAIN-SET,")) and ",PROXY" in rule:
+            if rules.index(rule) > first_chinamax:
+                errors.append(f"overseas rule must precede ChinaMax: {rule}")
+
+    redundant_domestic_sources = (
+        "/DingTalk/DingTalk.list,DIRECT",
+        "/WeChat/WeChat.list,DIRECT",
+        "/ByteDance/ByteDance.list,DIRECT",
+        "/Tencent/Tencent.list,DIRECT",
+        "/Tencent/Tencent_Domain.list,DIRECT",
+        "/NetEase/NetEase.list,DIRECT",
+        "/TapTap/TapTap.list,DIRECT",
+        "/China/China.list,DIRECT",
+        "/China/China_Domain.list,DIRECT",
+    )
+    for source in redundant_domestic_sources:
+        if any(source in rule for rule in rules):
+            errors.append(f"domestic source duplicates ChinaMax: {source}")
 
     for pattern in FORBIDDEN_PATTERNS:
         if re.search(pattern, text):
@@ -149,6 +197,52 @@ def validate_static(text: str) -> list[str]:
     }
     for rule in unsafe_udp_fallbacks.intersection(rules):
         errors.append(f"broad UDP routing is not allowed: {rule}")
+
+    return errors
+
+
+def validate_manifest(config_text: str) -> list[str]:
+    """Validate the minimal release manifest against the canonical config."""
+    errors: list[str] = []
+    if not VERSION_FILE.is_file():
+        return ["missing VERSION"]
+    if not MANIFEST.is_file():
+        return ["missing manifest.json"]
+
+    version = VERSION_FILE.read_text(encoding="utf-8").strip()
+    expected_channel = "release-candidate" if "-rc." in version else "stable"
+    try:
+        manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        return [f"invalid manifest.json ({type(exc).__name__})"]
+
+    expected_sha256 = hashlib.sha256(config_text.encode("utf-8")).hexdigest()
+    checks = {
+        "manifest version": (manifest.get("version"), version),
+        "manifest channel": (manifest.get("channel"), expected_channel),
+        "manifest config path": (
+            manifest.get("config", {}).get("path"),
+            "configs/shadowrocket/cn-smart-routing.conf",
+        ),
+        "manifest config sha256": (
+            manifest.get("config", {}).get("sha256"),
+            expected_sha256,
+        ),
+        "manifest runtime upstream commit": (
+            manifest.get("upstreams", {}).get("blackmatrix7/ios_rule_script"),
+            BLACKMATRIX_COMMIT,
+        ),
+        "manifest Feishu reference commit": (
+            manifest.get("upstreams", {}).get("icewithcola/Clash-Rule-Set"),
+            FEISHU_REFERENCE_COMMIT,
+        ),
+    }
+    for label, (actual, expected) in checks.items():
+        if actual != expected:
+            errors.append(f"{label} mismatch: expected {expected}, found {actual}")
+
+    if f"# 版本：{version}" not in config_text:
+        errors.append("config header version does not match VERSION")
 
     return errors
 
@@ -241,11 +335,16 @@ def audit_realtime_upstreams(config_text: str) -> tuple[list[str], list[str]]:
     config_suffixes, config_exact = domain_rules(config_text)
 
     feishu_suffixes, feishu_exact = domain_rules(sources["feishu"])
-    bytedance_suffixes, bytedance_exact = domain_rules(sources["bytedance"])
+    chinamax_suffixes: set[str] = set()
+    chinamax_exact: set[str] = set()
+    for name in ("chinamax", "chinamax_domains"):
+        suffixes, exact = domain_rules(sources[name])
+        chinamax_suffixes.update(suffixes)
+        chinamax_exact.update(exact)
     missing_feishu = domains_are_covered(
         feishu_suffixes | feishu_exact,
-        config_suffixes | bytedance_suffixes,
-        config_exact | bytedance_exact,
+        config_suffixes | chinamax_suffixes,
+        config_exact | chinamax_exact,
     )
     if missing_feishu:
         errors.append(
@@ -269,16 +368,10 @@ def audit_realtime_upstreams(config_text: str) -> tuple[list[str], list[str]]:
         errors.append(f"Tencent Meeting source format changed: {type(exc).__name__}")
         meeting_domains = set()
 
-    tencent_suffixes: set[str] = set()
-    tencent_exact: set[str] = set()
-    for name in ("tencent", "tencent_domains", "wechat"):
-        suffixes, exact = domain_rules(sources[name])
-        tencent_suffixes.update(suffixes)
-        tencent_exact.update(exact)
     missing_meeting = domains_are_covered(
         meeting_domains,
-        config_suffixes | tencent_suffixes,
-        config_exact | tencent_exact,
+        config_suffixes | chinamax_suffixes,
+        config_exact | chinamax_exact,
     )
     if missing_meeting:
         errors.append(
@@ -311,6 +404,7 @@ def main() -> int:
 
     text = CONFIG.read_text(encoding="utf-8")
     errors = validate_static(text)
+    errors.extend(validate_manifest(text))
     if args.network:
         errors.extend(validate_network(remote_urls(text)))
     upstream_notes: list[str] = []
@@ -325,6 +419,7 @@ def main() -> int:
 
     print("PASS: Shadowrocket configuration is structurally valid")
     print("PASS: no bundled nodes or obvious credentials detected")
+    print("PASS: manifest version, pinned upstreams and config checksum match")
     if args.network:
         print("PASS: all remote rule URLs are reachable")
     for note in upstream_notes:

@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-Status: public release candidate. Current version: `0.1.0-rc.1`.
+Status: public release candidate. Current version: `0.2.0-rc.1`.
 
 [![Validate Shadowrocket config](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml/badge.svg)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml)
 [![Latest release](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?include_prereleases&label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
@@ -38,14 +38,14 @@ Import the config -> select your own node -> use Configuration mode
 
 ## How this project is different
 
-This repository is intentionally narrower than a general rule library or an ad-blocking suite.
+This repository does not ask users to assemble a rule library. The default profile uses ChinaMax for broad mainland coverage, then protects AI, developer and overseas-work services with explicit proxy rules. It still avoids ad blocking, scripts and complex policy groups by default.
 
 | Design choice | CN Smart Routing |
 |---|---|
 | Primary user | Mainland-China Shadowrocket users who already have their own subscription |
 | Daily goal | Keep the VPN enabled while mainland traffic stays direct |
 | Node control | One node, selected manually on the Shadowrocket home screen |
-| Default scope | Mainland office, banking, payment, media, games and LAN; overseas AI and development |
+| Default scope | Mainland office, banking, payment, carriers, media, games and LAN; overseas AI, development and work tools |
 | Security surface | No bundled nodes, subscription URL, MITM, scripts or default ad blocking |
 | Validation | Repository checks cover structure, priority, remote sources and common credential patterns |
 
@@ -54,7 +54,8 @@ Comparable projects often optimize for a different job: a large upstream rule ec
 ## What it does
 
 - Sends mainland domains, IP ranges, office tools, banking, payments, video, games and LAN traffic to `DIRECT`.
-- Sends ChatGPT, Claude, Gemini, Perplexity, GitHub, Docker, npm, PyPI and common overseas services to `PROXY`.
+- Sends ChatGPT, Claude, Gemini, Perplexity, GitHub, Copilot, Docker, npm, PyPI and common overseas services to `PROXY`.
+- Sends Notion, Slack, Teams, Discord and OneDrive to `PROXY`.
 - Sends unmatched traffic to `PROXY`, so unknown overseas sites continue to work.
 - Uses the node currently selected on the Shadowrocket home screen.
 - Includes no proxy node, subscription URL, automatic country selection, HTTPS decryption or MITM certificate.
@@ -117,7 +118,8 @@ Menu names may vary by Shadowrocket and OS version. The detailed walkthrough is 
 | Apple services in mainland China | Apple China, iCloud, Guizhou-Cloud related services | `DIRECT` |
 | Local network | private IP ranges, `.local`, `.lan` | `DIRECT` |
 | AI | ChatGPT, OpenAI API, Claude, Gemini, Perplexity | `PROXY` |
-| Developer services | GitHub, Docker Hub, npm, PyPI | `PROXY` |
+| Developer services | GitHub, Copilot, Docker Hub, npm, PyPI, JetBrains | `PROXY` |
+| Overseas work tools | Notion, Slack, Teams, Discord, OneDrive | `PROXY` |
 | Overseas services | Google, YouTube, X, Reddit | `PROXY` |
 | Unmatched traffic | anything not matched earlier | `PROXY` |
 
@@ -125,8 +127,8 @@ Menu names may vary by Shadowrocket and OS version. The detailed walkthrough is 
 
 | Client | Status | Notes |
 |---|---|---|
-| Shadowrocket on iPhone/iPad | Supported | Uses the shared core configuration |
-| Shadowrocket on macOS | Supported | Uses the shared core configuration |
+| Shadowrocket on iPhone/iPad | Supported | Uses the same `cn-smart-routing.conf` |
+| Shadowrocket on macOS | Supported | Uses the same `cn-smart-routing.conf`; TUN is managed in the app |
 | Apple TV | Not yet independently verified | Not part of the supported matrix yet |
 | Clash/Mihomo, Surge, Quantumult X, sing-box | Not supported by this file | Require separate adapters and tests |
 
@@ -138,7 +140,9 @@ This repository currently ships **Shadowrocket format only**. Do not import the 
 
 - Transparent rule-based routing for Shadowrocket Configuration mode.
 - Mainland-first direct routing and overseas proxy routing.
+- Broad mainland banking, payment, carrier, media, gaming, domain and IP coverage through ChinaMax.
 - Mainland chat, WSS signaling, meetings and recording-sync domains routed directly first.
+- High-frequency overseas AI, developer and work services explicitly proxied before ChinaMax.
 - Manual home-screen node selection.
 - Static checks for structure, rule priority, remote sources and obvious credential patterns.
 
@@ -201,7 +205,7 @@ The validator does not replace a real Shadowrocket import or real-device traffic
 
 ## Third-party rules
 
-The configuration references public rule lists from [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) by URL. A small set of Feishu domain suffixes is selectively adapted from the Unlicense-licensed [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set); incompatible or high-risk IP lists are not imported. See [THIRD_PARTY.md](THIRD_PARTY.md).
+The configuration references ChinaMax and overseas-service rule lists from [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) by URL. A small set of Feishu domain suffixes is selectively adapted from the Unlicense-licensed [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set); incompatible or high-risk dynamic media IP lists are not imported. See [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Contributing
 

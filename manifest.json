@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "product": "CN Smart Routing",
+  "version": "0.2.0-rc.1",
+  "channel": "release-candidate",
+  "config": {
+    "path": "configs/shadowrocket/cn-smart-routing.conf",
+    "sha256": "fafaef210a72a7eb9d47fec5ee5514ebf5e1e4e36c392f8a9471a10a370c1489"
+  },
+  "supported_clients": {
+    "shadowrocket_ios": "supported",
+    "shadowrocket_ipados": "supported",
+    "shadowrocket_macos": "supported",
+    "shadowrocket_tvos": "unverified"
+  },
+  "upstreams": {
+    "blackmatrix7/ios_rule_script": "e69663d642551aa3e0164a656179335a896127ad",
+    "icewithcola/Clash-Rule-Set": "6baf0076c10bc87b9f9d30221254fdbd97f0f221"
+  },
+  "security": {
+    "bundled_nodes": false,
+    "subscription_urls": false,
+    "automatic_node_selection": false,
+    "mitm": false,
+    "scripts": false
+  }
+}

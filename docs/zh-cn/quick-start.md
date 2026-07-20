@@ -15,7 +15,7 @@
 
 ## 导入配置
 
-下载`configs/shadowrocket/cn-smart-routing.conf`。
+下载`configs/shadowrocket/cn-smart-routing.conf`。iPhone、iPad和Mac均使用这同一个文件。
 
 可以使用：
 
