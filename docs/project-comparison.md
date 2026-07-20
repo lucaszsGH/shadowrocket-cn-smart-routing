@@ -29,4 +29,4 @@ This is a neutral comparison of project intent, not a quality ranking. Every pro
 
 ## Important trade-offs
 
-CN Smart Routing deliberately gives up some breadth in exchange for a simpler and more inspectable daily workflow. It still depends on upstream public rule lists, cannot guarantee that every bank app accepts an active system VPN, and requires real-device testing for each network and node.
+CN Smart Routing uses ChinaMax for broad mainland coverage while keeping the daily workflow to one finished configuration and one manually selected node. It still depends on upstream public rule lists, cannot guarantee that every bank app accepts an active system VPN, and requires real-device testing for each network and node.

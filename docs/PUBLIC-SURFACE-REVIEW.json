@@ -1,6 +1,6 @@
 {
   "project": "CN Smart Routing",
-  "version": "0.1.0-rc.1",
+  "version": "0.2.0-rc.1",
   "audience": {
     "terminal_user": "A mainland-China Shadowrocket user who already has a proxy subscription",
     "use_scenario": "Reviewing a public GitHub repository before importing a routing configuration",
@@ -9,7 +9,10 @@
   },
   "consumer_value": [
     "Mainland and local-network traffic is routed directly",
-    "AI, developer, and unmatched overseas traffic follows the manually selected home-screen node",
+    "ChinaMax provides broad mainland banking, payment, carrier, media, gaming, domain, and IP coverage",
+    "Critical mainland chat, WSS signaling, meeting, and recording-sync domains are routed directly before the fallback",
+    "AI, developer, overseas-work, and unmatched overseas traffic follows the manually selected home-screen node",
+    "iPhone, iPad, and macOS use the same canonical configuration file",
     "No subscription, node, credential, HTTPS decryption, or automatic country selection is bundled"
   ],
   "must_not_claim": [
@@ -29,6 +32,7 @@
     "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
     "docs/project-comparison.md",
     "docs/zh-cn/project-comparison.md",
+    "docs/zh-cn/realtime-communications.md",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/routing-problem.yml",
     ".github/ISSUE_TEMPLATE/rule-request.yml"
