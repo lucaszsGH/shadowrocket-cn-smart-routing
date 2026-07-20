@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 import re
 import sys
@@ -18,6 +19,14 @@ REQUIRED_LINES = {
     "udp-policy-not-supported-behaviour = REJECT",
     "block-quic = all-proxy",
     "DOMAIN-SUFFIX,bytevcloud.com,DIRECT",
+    "DOMAIN-SUFFIX,baseopendev.com,DIRECT",
+    "DOMAIN-SUFFIX,feishu-3rd-party-services.com,DIRECT",
+    "DOMAIN-SUFFIX,feishuimg.com,DIRECT",
+    "DOMAIN-SUFFIX,feishupkg.com,DIRECT",
+    "DOMAIN-SUFFIX,larkoffice.com,DIRECT",
+    "DOMAIN-SUFFIX,bytehwm.com,DIRECT",
+    "DOMAIN-SUFFIX,ttwebview.com,DIRECT",
+    "DOMAIN-SUFFIX,volcvideo.com,DIRECT",
     "DOMAIN-SUFFIX,meeting.tencent.com,DIRECT",
     "DOMAIN-SUFFIX,wemeet.qq.com,DIRECT",
     "GEOIP,CN,DIRECT",
@@ -29,6 +38,14 @@ FORBIDDEN_PATTERNS = [
     r"(?i)(ss|ssr|vmess|vless|trojan)://",
     r"(?i)subscription[-_ ]?url\s*=",
 ]
+UPSTREAM_URLS = {
+    "feishu": "https://raw.githubusercontent.com/icewithcola/Clash-Rule-Set/master/feishu.yaml",
+    "bytedance": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ByteDance/ByteDance.list",
+    "tencent": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Tencent/Tencent.list",
+    "tencent_domains": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Tencent/Tencent_Domain.list",
+    "wechat": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list",
+    "tencent_meeting": "https://cdn.meeting.tencent.com/upload/firewall/domain_ip.json",
+}
 
 
 def active_lines(block: str) -> list[str]:
@@ -160,9 +177,132 @@ def validate_network(urls: list[str]) -> list[str]:
     return errors
 
 
+def fetch_text(url: str) -> str:
+    headers = {"User-Agent": "cn-smart-routing-validator/0.1"}
+    request = urllib.request.Request(url, headers=headers, method="GET")
+    with urllib.request.urlopen(request, timeout=20) as response:
+        if response.status != 200:
+            raise RuntimeError(f"HTTP {response.status}")
+        return response.read().decode("utf-8")
+
+
+def domain_rules(text: str) -> tuple[set[str], set[str]]:
+    """Return domain suffixes and exact domains from supported upstream formats."""
+    suffixes: set[str] = set()
+    exact: set[str] = set()
+    for raw_line in text.splitlines():
+        line = raw_line.strip().strip("'\"")
+        if not line or line.startswith("#"):
+            continue
+        if re.fullmatch(r"\.[A-Za-z0-9._-]+", line):
+            suffixes.add(line[1:].lower())
+            continue
+        match = re.match(r"DOMAIN-SUFFIX,([^,]+)", line)
+        if match:
+            suffixes.add(match.group(1).lower().lstrip("*."))
+            continue
+        match = re.match(r"DOMAIN,([^,]+)", line)
+        if match:
+            exact.add(match.group(1).lower().lstrip("*."))
+            continue
+        match = re.match(r"-\s*['\"]?\+\.([A-Za-z0-9._-]+)", line)
+        if match:
+            suffixes.add(match.group(1).lower())
+            continue
+        match = re.match(r"-\s*['\"]?([A-Za-z0-9._-]+)", line)
+        if match and "." in match.group(1):
+            exact.add(match.group(1).lower())
+    return suffixes, exact
+
+
+def domains_are_covered(
+    candidates: set[str], suffixes: set[str], exact: set[str]
+) -> set[str]:
+    missing: set[str] = set()
+    for candidate in candidates:
+        domain = candidate.lower().lstrip("*.")
+        if domain in exact:
+            continue
+        if any(domain == suffix or domain.endswith(f".{suffix}") for suffix in suffixes):
+            continue
+        missing.add(domain)
+    return missing
+
+
+def audit_realtime_upstreams(config_text: str) -> tuple[list[str], list[str]]:
+    """Compare the config with selected Feishu and Tencent upstream sources."""
+    errors: list[str] = []
+    notes: list[str] = []
+    try:
+        sources = {name: fetch_text(url) for name, url in UPSTREAM_URLS.items()}
+    except Exception as exc:  # noqa: BLE001 - keep optional audit readable
+        return [f"realtime upstream unavailable ({type(exc).__name__}: {exc})"], notes
+
+    config_suffixes, config_exact = domain_rules(config_text)
+
+    feishu_suffixes, feishu_exact = domain_rules(sources["feishu"])
+    bytedance_suffixes, bytedance_exact = domain_rules(sources["bytedance"])
+    missing_feishu = domains_are_covered(
+        feishu_suffixes | feishu_exact,
+        config_suffixes | bytedance_suffixes,
+        config_exact | bytedance_exact,
+    )
+    if missing_feishu:
+        errors.append(
+            "Feishu upstream domains not covered: " + ", ".join(sorted(missing_feishu))
+        )
+    else:
+        notes.append(
+            f"Feishu source coverage: {len(feishu_suffixes | feishu_exact)}/"
+            f"{len(feishu_suffixes | feishu_exact)} domains"
+        )
+
+    try:
+        meeting = json.loads(sources["tencent_meeting"])
+        meeting_domains = {
+            item["universal_domain"].lower().lstrip("*.")
+            for section_name in ("login_domains", "other_domains")
+            for item in meeting.get(section_name, [])
+            if item.get("universal_domain")
+        }
+    except (json.JSONDecodeError, KeyError, TypeError) as exc:
+        errors.append(f"Tencent Meeting source format changed: {type(exc).__name__}")
+        meeting_domains = set()
+
+    tencent_suffixes: set[str] = set()
+    tencent_exact: set[str] = set()
+    for name in ("tencent", "tencent_domains", "wechat"):
+        suffixes, exact = domain_rules(sources[name])
+        tencent_suffixes.update(suffixes)
+        tencent_exact.update(exact)
+    missing_meeting = domains_are_covered(
+        meeting_domains,
+        config_suffixes | tencent_suffixes,
+        config_exact | tencent_exact,
+    )
+    if missing_meeting:
+        errors.append(
+            "Tencent Meeting official wildcard domains not covered: "
+            + ", ".join(sorted(missing_meeting))
+        )
+    elif meeting_domains:
+        notes.append(
+            f"Tencent Meeting official coverage ({meeting.get('date', 'unknown')} "
+            f"{meeting.get('version', 'unknown')}): {len(meeting_domains)}/"
+            f"{len(meeting_domains)} wildcard domains"
+        )
+
+    return errors, notes
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--network", action="store_true", help="check remote rule URLs")
+    parser.add_argument(
+        "--audit-realtime-upstreams",
+        action="store_true",
+        help="compare Feishu and Tencent Meeting coverage with selected upstreams",
+    )
     args = parser.parse_args()
 
     if not CONFIG.is_file():
@@ -173,6 +313,10 @@ def main() -> int:
     errors = validate_static(text)
     if args.network:
         errors.extend(validate_network(remote_urls(text)))
+    upstream_notes: list[str] = []
+    if args.audit_realtime_upstreams:
+        upstream_errors, upstream_notes = audit_realtime_upstreams(text)
+        errors.extend(upstream_errors)
 
     if errors:
         for error in errors:
@@ -183,6 +327,8 @@ def main() -> int:
     print("PASS: no bundled nodes or obvious credentials detected")
     if args.network:
         print("PASS: all remote rule URLs are reachable")
+    for note in upstream_notes:
+        print(f"PASS: {note}")
     return 0
 
 

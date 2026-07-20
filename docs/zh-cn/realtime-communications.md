@@ -27,6 +27,7 @@ WebSocket、HTTPS 和部分 QUIC 都可能使用 443 端口。按协议或端口
 - `*.feishu.cn` 覆盖聊天、会议及 `*-frontier.feishu.cn` WSS 信令；
 - `feishucdn.com`、字节 CDN 与对象存储相关域名覆盖静态资源和同步；
 - `bytevcloud.com`、`bdurl.net`、`snssdk.com`、`pstatp.com`、`toutiaocloud.com` 等辅助域名显式直连；
+- 对照采用 Unlicense 的 `icewithcola/Clash-Rule-Set` 飞书域名表，补充 `feishuimg.com`、`feishupkg.com`、`baseopendev.com`、`bytehwm.com`、`ttwebview.com`、`volcvideo.com` 等当前 ByteDance 上游未覆盖的稳定后缀；
 - 中国大陆媒体服务器 IP 由 `GEOIP,CN,DIRECT` 兜底。
 
 ### 腾讯会议、会记、微信和企业微信
@@ -58,6 +59,26 @@ block-quic = all-proxy
 3. 过大的 IP 规则增加维护和排障成本。
 
 本项目优先维护稳定的业务域名，再用上游腾讯/字节规则和 `GEOIP,CN` 兜底。只有真机日志证明存在持续、可复现且边界明确的媒体 IP 缺口时，才考虑增加最小 IP 段。
+
+## GitHub 现有方案如何取舍
+
+调研日期：2026-07-20。结论不是“规则越多越好”，而是按许可证、客户端格式、维护状态、误伤面和可验证性分层复用。
+
+| 来源 | 处理方式 | 原因 |
+|---|---|---|
+| [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) | 继续通过 URL 引用选定的 Shadowrocket 规则 | 格式兼容、覆盖面广、项目持续维护；避免在本仓库复制大规则库 |
+| [`icewithcola/Clash-Rule-Set/feishu.yaml`](https://github.com/icewithcola/Clash-Rule-Set/blob/6baf0076c10bc87b9f9d30221254fdbd97f0f221/feishu.yaml) | 只整理当前上游未覆盖的稳定域名 | 采用 Unlicense，但文件是 Clash YAML，不能直接当 Shadowrocket `RULE-SET`；域名可审计，IP 不需要 |
+| [`buhuizhuce/Rule/Feishu.list`](https://github.com/buhuizhuce/Rule/blob/deccbf6835a735781c5f1ecff9451d9e2f7dd5fc/Feishu.list) | 不直接引用 | 未检测到明确许可证，且包含约 195 条跨地区/云服务 IP；全部 `DIRECT` 会扩大误伤与过期风险 |
+| [`www011215/Surge_rule_list/Surge_TencentMeeting.list`](https://github.com/www011215/Surge_rule_list/blob/d442f0887293d6968cae348af5ba702a3594edc2/Surge_TencentMeeting.list) | 仅作交叉核对，不直接引用 | 未检测到明确许可证，包含约 114 条动态媒体 IP 和本机观察项；腾讯官方明确提示域名/IP会持续变化，不应靠解析结果固定 IP |
+| [`Shadowrocket/config`](https://github.com/Shadowrocket/config) | 借鉴语法和局域网排除思路，不盲加参数 | 官方账户示例有参考价值，但仓库较旧；`bypass-system`、`bypass-tun` 等仍需在当前版本真机 A/B 后再决定 |
+
+腾讯会议提供持续更新的[官方 JSON 防火墙清单](https://cdn.meeting.tencent.com/upload/firewall/domain_ip.json)。本项目不把该 JSON 直接交给 Shadowrocket，因为格式不兼容；而是通过可选审计命令，将官方泛域名与当前配置及 Tencent/WeChat 上游规则做覆盖对比。
+
+```bash
+python3 scripts/validate_shadowrocket.py --audit-realtime-upstreams
+```
+
+这使“自动引用”和“安全边界”同时成立：成熟、兼容的规则运行时引用；小而稳定的缺口显式维护；动态官方清单用于检查漂移；低可信或无许可证的大 IP 表不进入默认配置。
 
 ## 真机测试矩阵
 

@@ -191,11 +191,17 @@ Also check whether every remote rule URL is reachable:
 python3 scripts/validate_shadowrocket.py --network
 ```
 
+Audit the realtime-communication coverage against selected Feishu community data and Tencent Meeting's official machine-readable firewall list:
+
+```bash
+python3 scripts/validate_shadowrocket.py --audit-realtime-upstreams
+```
+
 The validator does not replace a real Shadowrocket import or real-device traffic test.
 
 ## Third-party rules
 
-The configuration references public rule lists from [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) by URL. It does not copy or redistribute those lists. See [THIRD_PARTY.md](THIRD_PARTY.md).
+The configuration references public rule lists from [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) by URL. A small set of Feishu domain suffixes is selectively adapted from the Unlicense-licensed [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set); incompatible or high-risk IP lists are not imported. See [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Contributing
 

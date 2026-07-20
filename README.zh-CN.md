@@ -189,11 +189,17 @@ python3 scripts/validate_shadowrocket.py
 python3 scripts/validate_shadowrocket.py --network
 ```
 
+对照选定的飞书社区数据和腾讯会议官方机器可读防火墙清单，检查实时通信覆盖：
+
+```bash
+python3 scripts/validate_shadowrocket.py --audit-realtime-upstreams
+```
+
 验证脚本不能替代真实导入和真机流量测试。
 
 ## 第三方规则
 
-配置通过 URL 引用 [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) 的公开规则集，但不复制或重新发布这些规则文件。详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+配置通过 URL 引用 [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) 的公开规则集；另从采用 Unlicense 的 [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set) 中选择性整理少量飞书域名，不导入格式不兼容或风险较高的 IP 表。详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
 
 ## 参与贡献
 
