@@ -1,6 +1,6 @@
 {
   "project": "CN Direct by DeepWheel",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.0",
   "audience": {
     "terminal_user": "A mainland-China Shadowrocket user who already has a proxy subscription",
     "use_scenario": "Reviewing a public GitHub repository before importing a routing configuration",

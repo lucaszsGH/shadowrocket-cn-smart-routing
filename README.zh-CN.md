@@ -2,10 +2,10 @@
 
 [English](README.md) | **简体中文**
 
-状态：发布候选；当前版本：`0.2.0-rc.2`。
+状态：正式版；当前版本：`0.2.0`。
 
 [![配置校验](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml/badge.svg)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml)
-[![最新版本](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?include_prereleases&label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
+[![最新正式版](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
 [![GPL-2.0 许可证](https://img.shields.io/github/license/lucaszsGH/shadowrocket-cn-smart-routing)](LICENSE)
 
 面向中国大陆用户的一套开源 **Shadowrocket（小火箭）配置**：国内办公、网银、支付、影音、游戏和局域网优先直连；ChatGPT、Claude、Gemini、GitHub 等海外服务跟随你在首页选择的节点。

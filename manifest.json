@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "product": "CN Direct by DeepWheel",
-  "version": "0.2.0-rc.2",
-  "channel": "release-candidate",
+  "version": "0.2.0",
+  "channel": "stable",
   "config": {
     "path": "configs/shadowrocket/CN-Direct-DeepWheel.conf",
-    "sha256": "52df6295e94a8090b010963b31e97cbad321c6ad7f67c8628ea3f29b08e77447"
+    "sha256": "947ebfb8376795f7a35ed9f2cd5ce8f7f2428021af57b9f37e49d7deb483655d"
   },
   "distribution": {
     "primary_installation": "remote_url",
