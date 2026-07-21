@@ -1,62 +1,66 @@
-name: Routing problem
-description: Report a mainland DIRECT or overseas PROXY routing problem without sharing private data
-title: "[Routing] "
+name: 分流问题
+description: 反馈国内 DIRECT、海外 PROXY 或局域网分流异常，不要提交隐私数据
+title: "[分流问题] "
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve the configuration. Do not paste subscription URLs, node details, credentials, public IP addresses or full Shadowrocket logs.
+        谢谢你帮助改进 CN Direct。只需描述公开服务和看到的现象。
+
+        **不要粘贴机场订阅、节点详情、二维码、账号凭证、公网 IP 或完整 Shadowrocket 日志。**
   - type: dropdown
     id: route
     attributes:
-      label: Expected route
+      label: 你希望它走哪条路径？
       options:
-        - Mainland service should use DIRECT
-        - Overseas service should use PROXY
-        - Local network service should use DIRECT
+        - 中国大陆服务应走 DIRECT
+        - 海外服务应走 PROXY
+        - 局域网服务应走 DIRECT
     validations:
       required: true
   - type: dropdown
     id: device
     attributes:
-      label: Device
+      label: 使用设备
       options:
-        - iPhone or iPad
+        - iPhone 或 iPad
         - macOS
-        - Other or not sure
+        - 其他或不确定
     validations:
       required: true
   - type: input
     id: version
     attributes:
-      label: Configuration version or commit
-      placeholder: 0.2.0 or a short Git commit
+      label: 配置版本或提交号
+      description: 可在配置列表点击文件名称，再选择“预览”查看顶部版本。
+      placeholder: 例如 0.2.0 或短 Git 提交号
     validations:
       required: true
   - type: input
     id: service
     attributes:
-      label: Service or public domain
-      description: Share only a public service name or public domain, never a private host.
-      placeholder: Example service or example.com
+      label: 公开服务名或公开域名
+      description: 只填写公开服务或公开域名，不要填写私有主机。
+      placeholder: 例如 某服务 或 example.com
     validations:
       required: true
   - type: textarea
     id: observation
     attributes:
-      label: What happened
-      description: Describe the visible symptom and the route shown by Shadowrocket. Redact all personal data.
+      label: 实际发生了什么？
+      description: 描述你看到的现象和 Shadowrocket 显示的路径；请先删除所有个人信息。
+      placeholder: 例如：配置模式下无法打开；切回原配置恢复。Shadowrocket 显示走 PROXY。
     validations:
       required: true
   - type: textarea
     id: checks
     attributes:
-      label: Checks already completed
-      placeholder: Config mode enabled; current Raw file imported; reproduced on Wi-Fi or 5G
+      label: 已经做过哪些检查？
+      placeholder: 已开启配置模式；已点击更新；在 Wi-Fi 或 5G 上复现
   - type: checkboxes
     id: privacy
     attributes:
-      label: Privacy check
+      label: 提交前确认
       options:
-        - label: I removed subscription URLs, node details, credentials, public IPs and full logs.
+        - label: 我已经删除订阅、节点、二维码、凭证、公网 IP 和完整日志。
           required: true

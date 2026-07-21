@@ -4,8 +4,8 @@
   "audience": {
     "terminal_user": "A mainland-China Shadowrocket user who already has a proxy subscription",
     "use_scenario": "Reviewing a public GitHub repository before importing a routing configuration",
-    "desired_belief": "Install once by remote URL, keep mainland traffic direct, choose the node manually, and receive future stable config updates through Shadowrocket",
-    "next_action": "Import the stable Raw URL, enable Configuration mode and background config updates, then choose a node from the home screen"
+    "desired_belief": "Keep Shadowrocket enabled while mainland and local-network traffic stays direct, without giving the project control of subscriptions, nodes or accounts",
+    "next_action": "Star the repository, import the stable Raw URL, enable Configuration mode and background config updates, then choose a node from the home screen"
   },
   "consumer_value": [
     "One recommended remote-URL installation path rather than several competing choices",
@@ -33,6 +33,7 @@
   },
   "public_surfaces": [
     "README.md",
+    "README.en.md",
     "README.zh-CN.md",
     "assets/intro/cn-smart-routing-hero-en.svg",
     "assets/intro/cn-smart-routing-hero-zh-CN.svg",
@@ -40,6 +41,7 @@
     "assets/intro/cn-smart-routing-workflow-zh-CN.svg",
     "assets/intro/cn-direct-update-en.svg",
     "assets/intro/cn-direct-update-zh-CN.svg",
+    "assets/intro/cn-direct-star-share-zh-CN.svg",
     "assets/intro/cn-direct-contribute-zh-CN.svg",
     "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
     "docs/project-comparison.md",

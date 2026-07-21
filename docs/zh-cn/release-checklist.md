@@ -13,7 +13,7 @@
 - [ ] 运行敏感信息扫描；
 - [ ] 确认没有订阅URL、节点、二维码或个人路径；
 - [ ] 核对`VERSION`、配置注释、Changelog和中英文README版本一致；
-- [ ] 运行`python3 scripts/render-intro-assets.py`，确认四张中英文介绍图均为1600×900；
+- [ ] 运行`python3 scripts/render-intro-assets.py`，确认英文图为 1600×900、中文移动端图为 1200×1200 或 1200×1500、社交预览为 1280×640；
 - [ ] 以GitHub README宽度和原尺寸分别人工检查介绍图；
 - [ ] 在Shadowrocket中通过最终Raw URL真实导入、编译和启用；
 - [ ] 开启配置后台更新和通知，手动触发一次远程配置更新并核对版本；

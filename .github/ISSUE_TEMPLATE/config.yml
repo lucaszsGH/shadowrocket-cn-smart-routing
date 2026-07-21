@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Security and privacy guidance
+  - name: 安全与隐私说明
     url: https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/blob/main/SECURITY.md
-    about: Read this before reporting anything that might contain private network or account data.
+    about: 如果问题可能包含网络或账号信息，请先阅读；不要公开提交订阅、节点、凭证或完整日志。
