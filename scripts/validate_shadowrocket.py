@@ -17,8 +17,9 @@ CONFIG = ROOT / "configs" / "shadowrocket" / "CN-Direct-DeepWheel.conf"
 LEGACY_CONFIG = ROOT / "configs" / "shadowrocket" / "cn-smart-routing.conf"
 VERSION_FILE = ROOT / "VERSION"
 MANIFEST = ROOT / "manifest.json"
-README_ZH = ROOT / "README.zh-CN.md"
-README_EN = ROOT / "README.md"
+README_ZH = ROOT / "README.md"
+README_EN = ROOT / "README.en.md"
+README_ZH_COMPAT = ROOT / "README.zh-CN.md"
 PRODUCT = "CN Direct by DeepWheel"
 CANONICAL_CONFIG_PATH = "configs/shadowrocket/CN-Direct-DeepWheel.conf"
 LEGACY_CONFIG_PATH = "configs/shadowrocket/cn-smart-routing.conf"
@@ -290,7 +291,7 @@ def validate_distribution(config_text: str) -> list[str]:
         if legacy_text != config_text:
             errors.append("legacy config must be byte-identical to canonical config")
 
-    for readme in (README_ZH, README_EN):
+    for readme in (README_ZH, README_EN, README_ZH_COMPAT):
         if not readme.is_file():
             errors.append(f"missing public README: {readme.name}")
             continue
@@ -303,6 +304,10 @@ def validate_distribution(config_text: str) -> list[str]:
             errors.append(f"{readme.name} does not use the canonical product name")
         if re.search(r"\]\(shadowrocket://", text):
             errors.append(f"{readme.name} must not rely on a GitHub-filtered custom scheme")
+
+    if README_ZH.is_file() and README_ZH_COMPAT.is_file():
+        if README_ZH.read_bytes() != README_ZH_COMPAT.read_bytes():
+            errors.append("README.zh-CN.md must stay byte-identical to the Chinese default README.md")
 
     return errors
 

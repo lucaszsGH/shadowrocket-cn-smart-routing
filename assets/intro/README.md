@@ -5,11 +5,12 @@ This folder contains the bilingual GitHub introduction system for CN Direct by D
 ## Language pairing
 
 - English README: `cn-smart-routing-hero-en.png` and `cn-smart-routing-workflow-en.png`
-- Chinese README: `cn-smart-routing-hero-zh-CN.png` and `cn-smart-routing-workflow-zh-CN.png`
+- Chinese default README: `cn-smart-routing-hero-zh-CN.png` and `cn-smart-routing-workflow-zh-CN.png`
 - Update guide: `cn-direct-update-en.png` and `cn-direct-update-zh-CN.png`
+- Chinese Star and safe-share guide: `cn-direct-star-share-zh-CN.png`
 - Chinese contribution guide: `cn-direct-contribute-zh-CN.png`
 
-The SVG files are editable sources. PNG files are exact 1600 × 900 README exports.
+The SVG files are editable sources. English assets remain exact 1600 × 900 exports. Chinese consumer assets use mobile-readable 1200 × 1200 or 1200 × 1500 canvases.
 
 GitHub social preview:
 
@@ -20,9 +21,10 @@ The social preview is an exact 1280 × 640 export for the repository Settings pa
 
 ## Visual roles
 
-- Hero: the consumer promise—mainland traffic stays direct while overseas traffic follows the selected node.
+- Hero: the consumer promise—keep Shadowrocket enabled while mainland apps stay direct—and the `124,653 | 251 | 0` trust evidence.
 - Workflow: the observed Shadowrocket path—remote URL import, tap the configuration filename, choose Use Config, then keep node choice on the home screen.
-- Update guide: enable background updates once; for a manual check, tap the configuration filename, choose Update, then verify with Preview.
+- Update guide: keep the same stable URL, allow background config updates, and use filename → Update → Preview whenever an immediate check is needed. It never promises instant background execution.
+- Star/share guide: Star first for recall and discovery, then share the public repository homepage rather than private subscription data.
 - Contribution guide: report a public service and the observed problem; automated checks and maintainer review handle the remaining safety gates.
 - The UI guidance is redrawn with public labels and contains no screenshots, local IPs, subscriptions, nodes or device data.
 - The hero avoids provider logos, fake speed claims and fake network measurements.
@@ -32,8 +34,8 @@ The social preview is an exact 1280 × 640 export for the repository Settings pa
 
 - Terminal user: a mainland-China Shadowrocket user who already has a subscription, or a user reporting a routing problem.
 - Use scenario: first visit to the GitHub repository before importing a public configuration.
-- Desired belief: install once through the remote URL, keep node control, receive future stable config updates through Shadowrocket, and report problems without exposing private network data.
-- Next action: import the stable Raw URL, enable Configuration mode and background config updates, then select a node.
+- Desired belief: a verifiable, privacy-bounded mainland routing configuration can stay enabled without taking over the user's provider or node choice.
+- Next action: Star the repository, import the stable Raw URL, enable Configuration mode and background config updates, then select a node.
 - Prohibited claim: no promise of zero latency, bank-app acceptance, account-risk avoidance, Apple TV support, automatic iCloud sync or guaranteed background execution.
 
 ## Generation order

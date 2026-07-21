@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">CN Direct by DeepWheel 收藏与分享指引</title>
+  <desc id="desc">在 GitHub 点亮 Star 收藏项目，再把公开项目主页分享给朋友；不要分享自己的订阅、节点或账号。</desc>
+  <defs><radialGradient id="aura" cx="100%" cy="0%" r="135%"><stop offset="0%" stop-color="#DFEAF7"/><stop offset="30%" stop-color="#ECF2FB"/><stop offset="65%" stop-color="#F6F9FC"/><stop offset="100%" stop-color="#FBFBFB"/></radialGradient><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#101722" flood-opacity=".04"/><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#101722" flood-opacity=".07"/></filter></defs>
+  <rect width="1200" height="1200" fill="url(#aura)"/><rect x="44" y="44" width="1112" height="1112" rx="34" fill="#FFFFFF" filter="url(#shadow)"/>
+  <g transform="translate(82 68) scale(.34)"><path fill="#101722" d="M37 115V68C37 46 55 28 76 28H153C159 28 162 32 162 38V113C162 135 145 151 124 151H115C111 151 108 148 108 144V130C108 126 111 123 115 123H123C129 123 132 119 132 113V63C132 59 129 56 125 56H79C72 56 67 61 67 68V113C67 116 65 117 62 117H39C38 117 37 116 37 115Z"/><circle cx="87.5" cy="137.5" r="14.99" fill="#0071E3"/></g>
+  <text x="166" y="116" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="25" fill="#101722">Deep<tspan fill="#0071E3">Wheel</tspan></text><text x="1118" y="112" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="14" fill="#5C626B" letter-spacing="2.4">SAVE · SHARE</text><line x1="82" y1="150" x2="1118" y2="150" stroke="#E1E6EE"/>
+  <text x="82" y="224" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#5C626B" letter-spacing="2.4">HELP MORE PEOPLE FIND IT</text>
+  <text x="82" y="306" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="62" fill="#101722">先收藏。</text>
+  <text x="82" y="384" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="62" fill="#101722">再分享。</text>
+  <text x="82" y="438" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="24" fill="#42474F">让自己下次找得到，也让更多中国大陆用户少折腾。</text>
+
+  <rect x="82" y="500" width="1036" height="178" rx="22" fill="#FFFFFF" stroke="#0071E3" stroke-width="3"/><rect x="82" y="500" width="12" height="178" rx="6" fill="#0071E3"/>
+  <text x="126" y="552" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#0071E3" letter-spacing="1.8">STEP 01 · 收藏</text>
+  <text x="126" y="612" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="34" fill="#101722">点击仓库顶部 Star</text>
+  <rect x="848" y="548" width="226" height="74" rx="37" fill="#0071E3"/><text x="961" y="596" text-anchor="middle" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="23" fill="#FFFFFF">☆ Star</text>
+  <text x="126" y="650" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="17" fill="#5C626B">Star 是收藏和发现信号，不是安装条件，也不会发送更新通知。</text>
+
+  <rect x="82" y="708" width="1036" height="236" rx="22" fill="#F2F5F9"/>
+  <text x="118" y="764" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#5C626B" letter-spacing="1.8">STEP 02 · 分享</text>
+  <text x="118" y="824" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="34" fill="#101722">发送公开项目主页</text>
+  <rect x="118" y="858" width="930" height="54" rx="14" fill="#FFFFFF" stroke="#E1E6EE"/>
+  <text x="144" y="892" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="17" fill="#42474F">github.com/lucaszsGH/shadowrocket-cn-smart-routing</text>
+
+  <line x1="82" y1="1000" x2="1118" y2="1000" stroke="#E1E6EE"/>
+  <text x="82" y="1052" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="22" fill="#101722">只分享项目，不分享隐私</text>
+  <text x="82" y="1092" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="18" fill="#5C626B">不要发送自己的机场订阅、节点、二维码、账号或日志。</text>
+</svg>

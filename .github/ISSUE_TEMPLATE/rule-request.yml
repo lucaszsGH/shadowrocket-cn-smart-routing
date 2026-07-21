@@ -1,15 +1,15 @@
-name: Rule request
-description: Suggest a public mainland DIRECT or overseas PROXY rule
-title: "[Rule request] "
+name: 规则建议
+description: 建议一个公开的中国大陆 DIRECT 或海外 PROXY 规则
+title: "[规则建议] "
 body:
   - type: markdown
     attributes:
       value: |
-        Suggest only public service domains. Do not share subscriptions, nodes, credentials, private hosts or full logs.
+        只提交公开服务域名。不要提交机场订阅、节点、凭证、私有主机或完整日志。
   - type: dropdown
     id: route
     attributes:
-      label: Proposed route
+      label: 建议路径
       options:
         - DIRECT
         - PROXY
@@ -18,30 +18,31 @@ body:
   - type: input
     id: service
     attributes:
-      label: Public service name
+      label: 公开服务名称
+      placeholder: 例如 某银行、某办公工具或某海外服务
     validations:
       required: true
   - type: textarea
     id: domains
     attributes:
-      label: Public domains
-      description: One public domain per line. Do not include URLs with tokens or query strings.
+      label: 公开域名
+      description: 每行一个公开域名。不要包含带 Token 或查询参数的完整 URL。
       render: text
     validations:
       required: true
   - type: textarea
     id: rationale
     attributes:
-      label: Why this belongs in the shared configuration
-      description: Explain whether this is a mainland service, overseas service or local-network dependency.
+      label: 为什么应该加入公共配置？
+      description: 说明它属于中国大陆服务、海外服务还是局域网依赖，以及错误分流造成的影响。
     validations:
       required: true
   - type: checkboxes
     id: evidence
     attributes:
-      label: Submission check
+      label: 提交前确认
       options:
-        - label: These are public domains and the report contains no subscriptions, nodes, credentials, public IPs or full logs.
+        - label: 这些是公开域名，内容不含订阅、节点、凭证、公网 IP 或完整日志。
           required: true
-        - label: I understand that a rule request still requires validation and may not be merged.
+        - label: 我理解规则仍需验证，不保证一定合并。
           required: true

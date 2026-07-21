@@ -16,12 +16,13 @@ ROOT = Path(__file__).resolve().parents[1]
 INTRO = ROOT / "assets" / "intro"
 ASSETS = (
     ("cn-smart-routing-hero-en", (1600, 900)),
-    ("cn-smart-routing-hero-zh-CN", (1600, 900)),
+    ("cn-smart-routing-hero-zh-CN", (1200, 1200)),
     ("cn-smart-routing-workflow-en", (1600, 900)),
-    ("cn-smart-routing-workflow-zh-CN", (1600, 900)),
+    ("cn-smart-routing-workflow-zh-CN", (1200, 1500)),
     ("cn-direct-update-en", (1600, 900)),
-    ("cn-direct-update-zh-CN", (1600, 900)),
-    ("cn-direct-contribute-zh-CN", (1600, 900)),
+    ("cn-direct-update-zh-CN", (1200, 1500)),
+    ("cn-direct-star-share-zh-CN", (1200, 1200)),
+    ("cn-direct-contribute-zh-CN", (1200, 1500)),
     ("shadowrocket-cn-smart-routing-social-preview", (1280, 640)),
 )
 

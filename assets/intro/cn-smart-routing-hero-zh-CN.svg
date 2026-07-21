@@ -1,66 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">CN Direct by DeepWheel 中文 GitHub 介绍</title>
-  <desc id="desc">让 Shadowrocket 保持开启，国内办公、支付、视频和游戏优先直连，海外 AI 与开发服务跟随用户手动选择的节点代理。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">CN Direct by DeepWheel 中文消费者主图</title>
+  <desc id="desc">小火箭保持开启，中国大陆应用和局域网优先直连，海外服务跟随首页手动选择的节点代理，并展示规则覆盖与隐私边界。</desc>
   <defs>
-    <radialGradient id="aura" cx="100%" cy="0%" r="135%">
-      <stop offset="0%" stop-color="#DFEAF7"/>
-      <stop offset="26%" stop-color="#ECF2FB"/>
-      <stop offset="55%" stop-color="#F6F9FC"/>
-      <stop offset="100%" stop-color="#FBFBFB"/>
-    </radialGradient>
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#101722" flood-opacity=".04"/>
-      <feDropShadow dx="0" dy="14" stdDeviation="17" flood-color="#101722" flood-opacity=".07"/>
-    </filter>
+    <radialGradient id="aura" cx="100%" cy="0%" r="135%"><stop offset="0%" stop-color="#DFEAF7"/><stop offset="28%" stop-color="#ECF2FB"/><stop offset="62%" stop-color="#F6F9FC"/><stop offset="100%" stop-color="#FBFBFB"/></radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#101722" flood-opacity=".04"/><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#101722" flood-opacity=".07"/></filter>
   </defs>
+  <rect width="1200" height="1200" fill="url(#aura)"/>
+  <rect x="44" y="44" width="1112" height="1112" rx="34" fill="#FFFFFF" filter="url(#shadow)"/>
 
-  <rect width="1600" height="900" fill="url(#aura)"/>
-  <rect x="64" y="64" width="1472" height="772" rx="32" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <g transform="translate(82 68) scale(.34)"><path fill="#101722" d="M37 115V68C37 46 55 28 76 28H153C159 28 162 32 162 38V113C162 135 145 151 124 151H115C111 151 108 148 108 144V130C108 126 111 123 115 123H123C129 123 132 119 132 113V63C132 59 129 56 125 56H79C72 56 67 61 67 68V113C67 116 65 117 62 117H39C38 117 37 116 37 115Z"/><circle cx="87.5" cy="137.5" r="14.99" fill="#0071E3"/></g>
+  <text x="166" y="116" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="25" fill="#101722">Deep<tspan fill="#0071E3">Wheel</tspan></text>
+  <text x="1112" y="112" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="14" fill="#5C626B" letter-spacing="2.5">CN DIRECT · SHADOWROCKET</text>
+  <line x1="82" y1="150" x2="1118" y2="150" stroke="#E1E6EE"/>
 
-  <g transform="translate(106 81) scale(.30)">
-    <path fill="#101722" d="M37 115V68C37 46 55 28 76 28H153C159 28 162 32 162 38V113C162 135 145 151 124 151H115C111 151 108 148 108 144V130C108 126 111 123 115 123H123C129 123 132 119 132 113V63C132 59 129 56 125 56H79C72 56 67 61 67 68V113C67 116 65 117 62 117H39C38 117 37 116 37 115Z"/>
-    <circle cx="87.5" cy="137.5" r="14.99" fill="#0071E3"/>
-  </g>
-  <text x="180" y="122" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="22" fill="#101722" letter-spacing="-.3">Deep<tspan fill="#0071E3">Wheel</tspan></text>
-  <text x="1494" y="118" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="13" fill="#5C626B" letter-spacing="2.6">SHADOWROCKET ROUTING</text>
-  <line x1="106" y1="158" x2="1494" y2="158" stroke="#E1E6EE" stroke-width="1"/>
+  <text x="82" y="224" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#5C626B" letter-spacing="2.4">ALWAYS ON · MAINLAND FIRST</text>
+  <text x="82" y="306" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="62" fill="#101722" letter-spacing="-1.5">小火箭一直开。</text>
+  <text x="82" y="384" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="62" fill="#101722" letter-spacing="-1.5">国内应用照常用。</text>
+  <text x="82" y="438" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="25" fill="#42474F">一份配置，分开国内与海外；节点仍由你在首页选择。</text>
 
-  <text x="112" y="226" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.4">CN DIRECT BY DEEPWHEEL</text>
-  <text x="112" y="294" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="48" fill="#101722" letter-spacing="-1">国内直连。海外照常代理。</text>
-  <text x="112" y="354" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="28" fill="#42474F">安装一次。以后，只选节点。</text>
+  <rect x="82" y="494" width="1036" height="260" rx="24" fill="#F2F5F9"/>
+  <rect x="112" y="526" width="976" height="84" rx="16" fill="#FFFFFF"/>
+  <text x="144" y="560" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="23" fill="#101722">中国大陆与局域网</text>
+  <text x="144" y="590" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="17" fill="#5C626B">办公 · 网银 · 支付 · 影音 · 游戏 · 会议</text>
+  <text x="1054" y="576" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#5C626B" letter-spacing="1.3">DIRECT</text>
+  <rect x="112" y="626" width="976" height="96" rx="16" fill="#FFFFFF" stroke="#0071E3" stroke-width="2"/>
+  <rect x="112" y="626" width="9" height="96" rx="4.5" fill="#0071E3"/>
+  <text x="144" y="664" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="23" fill="#101722">海外服务</text>
+  <text x="144" y="696" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="17" fill="#5C626B">ChatGPT · Claude · Gemini · GitHub · 其他海外网站</text>
+  <text x="1054" y="682" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="16" fill="#0071E3" letter-spacing="1.3">PROXY</text>
 
-  <line x1="112" y1="410" x2="880" y2="410" stroke="#E1E6EE" stroke-width="1.5"/>
-  <text x="112" y="462" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">国内流量</text>
-  <text x="262" y="462" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="18" fill="#42474F">办公 · 银行 · 支付 · 视频 · 游戏 · 局域网</text>
-  <text x="833" y="462" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="15" fill="#5C626B" letter-spacing="1.3">DIRECT</text>
+  <text x="82" y="828" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="22" fill="#101722">看得见的信任证据</text>
+  <line x1="82" y1="858" x2="1118" y2="858" stroke="#E1E6EE"/>
+  <text x="82" y="930" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="44" fill="#101722">124,653</text>
+  <text x="82" y="964" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="17" fill="#5C626B">大陆匹配规则</text>
+  <line x1="406" y1="884" x2="406" y2="978" stroke="#E1E6EE"/>
+  <text x="456" y="930" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="44" fill="#101722">251</text>
+  <text x="456" y="964" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="17" fill="#5C626B">上游子规则集合</text>
+  <line x1="760" y1="884" x2="760" y2="978" stroke="#E1E6EE"/>
+  <text x="810" y="930" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="44" fill="#0071E3">0</text>
+  <text x="810" y="964" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="17" fill="#5C626B">节点 · 订阅 · MITM · 脚本</text>
 
-  <line x1="112" y1="492" x2="880" y2="492" stroke="#E1E6EE" stroke-width="1"/>
-  <text x="112" y="544" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">海外流量</text>
-  <text x="262" y="544" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="18" fill="#42474F">AI · GitHub · 开发服务 · 其他海外网站</text>
-  <text x="833" y="544" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="15" fill="#0071E3" letter-spacing="1.3">PROXY</text>
-
-  <line x1="112" y1="596" x2="880" y2="596" stroke="#E1E6EE" stroke-width="1.5"/>
-  <text x="112" y="648" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">节点选择权仍在你手里</text>
-  <text x="112" y="686" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="17" fill="#5C626B">不内置节点，不自动选国家；代理流量跟随 Shadowrocket 首页当前节点。</text>
-  <text x="112" y="760" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="14" fill="#5C626B">不提供订阅 · 不解密 HTTPS · 不采集账号与浏览数据</text>
-
-  <rect x="956" y="238" width="488" height="500" rx="24" fill="#F2F5F9" stroke="#E1E6EE" stroke-width="1.5"/>
-  <rect x="1004" y="286" width="392" height="404" rx="16" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
-  <rect x="1004" y="286" width="9" height="404" rx="4.5" fill="#0071E3"/>
-  <text x="1045" y="334" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.7">一套规则 · 两条路径</text>
-
-  <rect x="1045" y="370" width="310" height="100" rx="14" fill="#F2F5F9"/>
-  <text x="1070" y="406" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="19" fill="#101722">中国大陆</text>
-  <text x="1070" y="440" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="15" fill="#5C626B">App · 网站 · IP · 局域网</text>
-  <text x="1330" y="426" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.2">DIRECT</text>
-
-  <line x1="1200" y1="470" x2="1200" y2="515" stroke="#0071E3" stroke-width="2"/>
-  <circle cx="1200" cy="493" r="6" fill="#0071E3"/>
-
-  <rect x="1045" y="515" width="310" height="100" rx="14" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
-  <text x="1070" y="551" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="19" fill="#101722">海外服务</text>
-  <text x="1070" y="585" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="15" fill="#5C626B">AI · 开发 · 未知海外流量</text>
-  <text x="1330" y="571" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#0071E3" letter-spacing="1.2">PROXY</text>
-
-  <text x="1200" y="653" text-anchor="middle" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="16" fill="#101722">首页手动选节点</text>
+  <line x1="82" y1="1024" x2="1118" y2="1024" stroke="#E1E6EE"/>
+  <text x="82" y="1070" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">安装一次。以后，只选节点。</text>
+  <text x="1118" y="1070" text-anchor="end" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-size="15" fill="#5C626B">数据为固定上游快照 · 不代表 App 数量</text>
 </svg>
