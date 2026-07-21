@@ -1,17 +1,17 @@
 # Project comparison
 
-Last reviewed: 2026-07-20.
+Last reviewed: 2026-07-21.
 
 This is a neutral comparison of project intent, not a quality ranking. Every project below solves a different job. Check each repository's current README, license and recent changes before importing anything.
 
-| Project | Primary job | Where it is stronger | How CN Smart Routing differs |
+| Project | Primary job | Where it is stronger | How CN Direct differs |
 |---|---|---|---|
-| [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) | Multiple Shadowrocket profiles, routing modes and ad-blocking variants | Broad choice, generated rule variants and advertising filters | CN Smart Routing ships one mainland-first profile, leaves ad blocking off by default and keeps node selection manual |
-| [GMOogway/shadowrocket-rules](https://github.com/GMOogway/shadowrocket-rules) | Large modular `DIRECT`, `PROXY` and `REJECT` rule sets | Advanced composition, modular overrides and broad rule volume | CN Smart Routing is a smaller end-user configuration with fewer daily decisions and an explicit consumer safety boundary |
-| [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | Cross-client upstream rules, rewrites and scripts | Very broad service coverage across multiple proxy clients | CN Smart Routing is not a replacement; it consumes selected Shadowrocket rule lists and provides a focused mainland-China configuration and validation layer |
-| [misha-tgshv/shadowrocket-configuration-file](https://github.com/misha-tgshv/shadowrocket-configuration-file) | Region-specific Shadowrocket configurations and lists for Russian-speaking users | Localized regional routing and configuration variants | CN Smart Routing applies the same region-first idea to mainland-China office, payment, media, gaming, LAN, AI and developer workflows |
+| [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) | Multiple Shadowrocket profiles, routing modes and ad-blocking variants | Broad choice, generated rule variants and advertising filters | CN Direct ships one mainland-first profile, leaves ad blocking off by default and keeps node selection manual |
+| [GMOogway/shadowrocket-rules](https://github.com/GMOogway/shadowrocket-rules) | Large modular `DIRECT`, `PROXY` and `REJECT` rule sets | Advanced composition, modular overrides and broad rule volume | CN Direct is a smaller end-user configuration with fewer daily decisions and an explicit consumer safety boundary |
+| [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | Cross-client upstream rules, rewrites and scripts | Very broad service coverage across multiple proxy clients | CN Direct is not a replacement; it consumes selected Shadowrocket rule lists and provides a focused mainland-China configuration and validation layer |
+| [misha-tgshv/shadowrocket-configuration-file](https://github.com/misha-tgshv/shadowrocket-configuration-file) | Region-specific Shadowrocket configurations and lists for Russian-speaking users | Localized regional routing and configuration variants | CN Direct applies the same region-first idea to mainland-China office, payment, media, gaming, LAN, AI and developer workflows |
 
-## Choose CN Smart Routing when
+## Choose CN Direct when
 
 - you already have your own subscription or nodes;
 - you want a single Shadowrocket configuration instead of a rule-building toolkit;
@@ -29,4 +29,4 @@ This is a neutral comparison of project intent, not a quality ranking. Every pro
 
 ## Important trade-offs
 
-CN Smart Routing uses ChinaMax for broad mainland coverage while keeping the daily workflow to one finished configuration and one manually selected node. It still depends on upstream public rule lists, cannot guarantee that every bank app accepts an active system VPN, and requires real-device testing for each network and node.
+CN Direct uses a pinned ChinaMax snapshot for broad mainland coverage while keeping the daily workflow to one finished configuration, one remote update path and one manually selected node. It still depends on upstream public rule lists, cannot guarantee that every bank app accepts an active system VPN, and requires real-device testing for each network and node.

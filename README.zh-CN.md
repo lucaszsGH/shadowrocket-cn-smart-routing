@@ -1,110 +1,94 @@
-# Shadowrocket CN Smart Routing｜中国大陆智能分流
+# CN Direct by DeepWheel｜Shadowrocket 中国大陆直连配置
 
 [English](README.md) | **简体中文**
 
-状态：公开发布候选；当前版本：`0.2.0-rc.1`。
+状态：发布候选；当前版本：`0.2.0-rc.2`。
 
 [![配置校验](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml/badge.svg)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml)
 [![最新版本](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?include_prereleases&label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
 [![GPL-2.0 许可证](https://img.shields.io/github/license/lucaszsGH/shadowrocket-cn-smart-routing)](LICENSE)
 
-一套面向中国大陆用户的开源 **Shadowrocket（小火箭）配置与分流规则**：国内 App、网银、办公、影音、游戏和局域网优先直连，ChatGPT、Claude、Gemini、GitHub 等海外服务使用你在首页手动选择的代理节点。
+面向中国大陆用户的一套开源 **Shadowrocket（小火箭）配置**：国内办公、网银、支付、影音、游戏和局域网优先直连；ChatGPT、Claude、Gemini、GitHub 等海外服务跟随你在首页选择的节点。
 
-![CN Smart Routing 让中国大陆应用直连、海外服务代理](assets/intro/cn-smart-routing-hero-zh-CN.png)
+![CN Direct 让中国大陆应用直连、海外服务代理](assets/intro/cn-smart-routing-hero-zh-CN.png)
 
-## 一句话价值
+## 国内直连。海外照常代理。
 
-让 Shadowrocket 保持开启，也让中国大陆流量尽量不绕路。
+**安装一次。以后，只选节点。**
 
-CN Smart Routing 会把国内 App、网站、IP 和局域网流量优先直连；AI、开发工具和其他海外服务，则统一跟随你在 Shadowrocket 首页手动选择的节点。
+CN Direct 不提供节点，也不替你选择国家或地区。它只负责把国内与海外流量送上正确的路径，让 Shadowrocket 可以保持开启，节点选择权仍留在首页。
 
-## 为什么需要它
+## 唯一安装方式
 
-很多中国大陆用户已经有自己的代理订阅，却仍然需要频繁开关 VPN：
+CN Direct 只推荐一种安装路径：**通过远程 URL 导入**。这样 Shadowrocket 才能在首次设置后继续检查稳定更新。
 
-- 打开 VPN 后，网银或支付 App 提示异常；
-- 微信、飞书、钉钉、视频和游戏变慢；
-- 关闭 VPN 后，ChatGPT、Claude、Gemini 和 GitHub 又无法使用；
-- 策略组太多，不知道当前究竟用了哪个节点；
-- 网上下载的配置可能夹带未知节点、脚本、证书或隐私风险。
+### 1. 准备自己的节点
 
-这个项目把日常操作压缩成三个看得见的动作：
+先在 Shadowrocket 中导入自己的机场订阅，并在首页选择一个可用节点。本项目不提供、读取或保存订阅。
+
+### 2. 复制稳定配置地址
 
 ```text
-导入配置 -> 选择自己的节点 -> 使用“配置”模式
+https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/configs/shadowrocket/CN-Direct-DeepWheel.conf
 ```
 
-![三步启用 CN Smart Routing，节点选择权仍由用户掌握](assets/intro/cn-smart-routing-workflow-zh-CN.png)
+打开 Shadowrocket 的“配置”页，通过远程 URL 添加该地址。GitHub 会过滤 `shadowrocket://` 自定义协议，因此本项目不提供看似一键、实际可能无效的安装按钮。
 
-## 和其他项目有什么不同
+配置真源：[`configs/shadowrocket/CN-Direct-DeepWheel.conf`](configs/shadowrocket/CN-Direct-DeepWheel.conf)
 
-这个仓库不要求用户自己拼装规则库，也不默认叠加去广告、脚本或复杂策略组。默认配置通过 ChinaMax 获得较完整的大陆覆盖，再用明确的海外规则保护 AI、开发和办公服务。
+### 3. 使用配置模式
 
-| 设计选择 | CN Smart Routing |
-|---|---|
-| 主要用户 | 已有自己订阅、希望长期打开 Shadowrocket 的中国大陆用户 |
-| 日常目标 | 国内流量尽量直连，海外 AI 和开发服务稳定走代理 |
-| 节点控制 | 首页只手动选择一个节点，不自动选国家或地区 |
-| 默认覆盖 | 国内办公、银行、支付、运营商、影音、游戏、局域网，以及海外 AI、开发和办公服务 |
-| 安全表面 | 不内置节点、订阅、MITM、脚本，也不默认启用广告拦截 |
-| 可验证性 | 检查结构、优先级、远程来源和常见凭证形状 |
+1. 在“配置”列表中**点击 `CN-Direct-DeepWheel.conf` 的文件名称**；
+2. 在弹出的操作菜单中点击“使用配置”；
+3. 返回首页，将“全局路由”设为“配置”；
+4. 开启 Shadowrocket；
+5. 以后仍在首页手动切换自己的节点。
 
-其他相似项目通常解决另一类问题：提供超大规则生态、多种分流模式、强力去广告，或针对其他国家优化。选择前可查看[中立项目对比](docs/zh-cn/project-comparison.md)。
+> 关键位置：点击配置文件名称，不是在右侧寻找信息符号。Shadowrocket不同设备版本的排版可能略有差异。
 
-## 你能得到什么
+![CN Direct远程导入、点击配置名称并使用配置的三步图示](assets/intro/cn-smart-routing-workflow-zh-CN.png)
 
-- 国内域名、IP、办公、银行、支付、影音、游戏和局域网流量优先 `DIRECT`；
-- ChatGPT、Claude、Gemini、Perplexity、GitHub、Copilot、Docker、npm、PyPI 等服务自动 `PROXY`；
-- Notion、Slack、Teams、Discord、OneDrive 等海外办公服务自动 `PROXY`；
-- 未命中的流量最终走 `PROXY`，未知海外网站不容易漏掉；
-- 所有代理流量跟随 Shadowrocket 首页当前手动选择的节点；
-- 配置不包含节点、订阅地址、自动选区、HTTPS 解密或 MITM 证书。
+### 4. 首次开启自动更新
 
-## 适合谁
-
-- 居住或工作在中国大陆；
-- 已经拥有自己的 Shadowrocket 节点或订阅；
-- 希望 VPN 长期开启；
-- 国内办公、支付、视频和游戏不能明显受影响；
-- 需要使用海外 AI、代码托管和开发服务；
-- 希望国家、地区和节点由自己决定，不交给自动选择。
-
-## 3 分钟开始使用
-
-### 1. 准备 Shadowrocket
-
-先导入自己的订阅或节点，再在首页手动选择一个可用节点。
-
-### 2. 导入配置
-
-下载：[`configs/shadowrocket/cn-smart-routing.conf`](configs/shadowrocket/cn-smart-routing.conf)
-
-在 Shadowrocket 的“配置”页面，通过“文件”、iCloud Drive、AirDrop 或 GitHub Raw URL 导入。
-
-自动跟随`main`更新的标准 Raw URL：
+在 Shadowrocket 的“设置 → 订阅”中找到“配置”更新区域：
 
 ```text
-https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/configs/shadowrocket/cn-smart-routing.conf
+自动后台更新：开启
+更新提醒：开启
+更新间隔：3 天
 ```
 
-### 3. 使用“配置”模式
+同时在 iPhone/iPad 系统设置中允许 Shadowrocket 使用“后台 App 刷新”和通知。不同版本的菜单名称可能略有差异。
 
-1. 在“配置”页面选中 `cn-smart-routing.conf`；
-2. 点击“使用配置”；
-3. 返回首页；
-4. 将“全局路由”设为“配置”；
-5. 以后仍在首页手动切换节点。
+需要立即检查更新时：在“配置”列表点击配置文件名称，再点击“更新”；随后点击“预览”，可在顶部核对版本。该路径已在macOS Shadowrocket真机验证。
 
-为降低局域网、网银和国内 App 受影响的概率，推荐：
+![CN Direct开启自动更新、手动更新并预览版本的图示](assets/intro/cn-direct-update-zh-CN.png)
 
-```text
-强制路由：关闭
-包括所有网络：关闭
-包括本地网络：关闭
-包括 APNs：关闭
-```
+> 配置内同时写入同一稳定 `update-url`，用于恢复导入后的更新识别；远程 URL 仍是唯一推荐安装方式。iOS 结束 Shadowrocket 进程、关闭后台刷新或长时间不打开应用时，后台任务可能延后；本地修改也会在远程配置更新时被覆盖。
 
-不同版本的菜单名称可能略有差异。完整步骤见[快速开始](docs/zh-cn/quick-start.md)。
+## 不是更多规则。是更少打扰。
+
+CN Direct 使用固定到已验证提交的 ChinaMax 作为大陆覆盖基础，再把海外 AI、开发和办公服务放在它之前明确代理，避免大型大陆规则误判海外服务。
+
+当前固定版本包含：
+
+| 可核对的覆盖证据 | 数量 |
+|---|---:|
+| 总匹配规则 | **124,653 条** |
+| 域名与域名后缀规则 | **112,138 条** |
+| 中国大陆 IP 网段规则 | **12,436 条** |
+| 上游明确列出的子规则集合 | **251 个** |
+
+子规则集合涉及常见银行、支付、运营商、办公、影音、游戏和生活服务。数字来自本项目锁定的 ChinaMax `2026-07-20` 版本，代表匹配体量，不代表 124,653 个 App，也不保证所有网络和设备完全没有延迟变化。[查看固定版本证据](https://github.com/blackmatrix7/ios_rule_script/blob/e69663d642551aa3e0164a656179335a896127ad/rule/Shadowrocket/ChinaMax/README.md)
+
+## 你仍然掌握节点
+
+- 使用自己的机场订阅；
+- 首页手动选择国家、地区和节点；
+- 不自动选择节点；
+- 不定义复杂策略组；
+- 不内置节点、订阅 URL、脚本、MITM 或证书；
+- 未命中的海外流量最终跟随首页节点代理。
 
 ## 分流一览
 
@@ -118,19 +102,16 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 | AI | ChatGPT、OpenAI API、Claude、Gemini、Perplexity | `PROXY` |
 | 开发服务 | GitHub、Copilot、Docker Hub、npm、PyPI、JetBrains | `PROXY` |
 | 海外办公 | Notion、Slack、Teams、Discord、OneDrive | `PROXY` |
-| 海外服务 | Google、YouTube、X、Reddit | `PROXY` |
 | 未命中流量 | 前面规则没有覆盖的流量 | `PROXY` |
 
 ## 设备支持
 
 | 客户端 | 当前状态 | 说明 |
 |---|---|---|
-| iPhone/iPad Shadowrocket | 支持 | 使用同一个 `cn-smart-routing.conf` |
-| macOS Shadowrocket | 支持 | 使用同一个 `cn-smart-routing.conf`；TUN 由应用设置管理 |
+| iPhone/iPad Shadowrocket | 支持 | 使用同一个 `CN-Direct-DeepWheel.conf` |
+| macOS Shadowrocket | 支持 | 使用同一个配置；TUN 由应用设置管理 |
 | Apple TV | 尚未独立验证 | 暂不列入正式支持范围 |
-| Clash/Mihomo、Surge、Quantumult X、sing-box | 本文件不支持 | 需要单独适配和测试 |
-
-当前仓库只提供 **Shadowrocket 格式**，不能把这个 `.conf` 直接导入 Clash 或其他客户端。
+| Clash/Mihomo、Surge、Quantumult X、sing-box | 不支持 | 不能直接导入本文件 |
 
 ## 能力边界
 
@@ -138,20 +119,18 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 
 - Shadowrocket“配置”模式下的透明规则分流；
 - 国内优先直连、海外优先代理；
-- ChinaMax 综合覆盖大陆银行、支付、运营商、影音、游戏、域名和 IP；
 - 国内聊天、WSS 信令、会议和录制同步关键域名优先直连；
-- 高频海外 AI、开发和办公服务在 ChinaMax 之前明确代理；
 - 首页手动选择节点；
-- 对配置结构、规则优先级、远程来源和常见凭证形状做静态检查。
+- 稳定 `update-url`、Shadowrocket 配置后台更新与固定上游版本；
+- 对结构、规则优先级、远程来源、兼容旧地址和常见凭证形状进行校验。
 
-### 需要真机确认
+### 仍需真机确认
 
-- 网银 App：部分银行只要检测到系统 VPN 就会提示异常，即使该流量已经 `DIRECT`；
+- 部分银行只要检测到系统 VPN 就会提示异常，即使流量已经 `DIRECT`；
 - 节点质量、地区适配和账号访问；
-- 每台设备的睡眠唤醒、Wi-Fi/5G 切换、门户网络、在线会议和长时间运行；
-- Apple TV 行为和 iCloud 同步。
-
-飞书会议、妙记、腾讯会议、会记和微信语音的覆盖逻辑及真机测试方法，详见[国内实时通信与会议分流](docs/zh-cn/realtime-communications.md)。
+- 睡眠唤醒、Wi-Fi/5G 切换、门户网络、在线会议和长时间运行；
+- 系统调度的后台更新时机；手动“更新 → 预览版本”链路已通过真机验证；
+- Apple TV 行为。
 
 ### 不承诺
 
@@ -161,56 +140,38 @@ https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/c
 - 在所有网络和设备上做到完全零延迟变化；
 - 绕过所在地法律、服务条款、地区政策或平台限制。
 
-## 隐私与安全
+## 已经装好了？
 
-公开仓库不需要，也不应该包含：
+如果 CN Direct 让你少开关一次小火箭，请在仓库右上角点亮 **Star**。它能帮你下次找到项目，也能帮助更多中国大陆用户发现这份配置。
 
-- 订阅 URL 和节点信息；
-- 能关联个人的公网 IP；
-- Cookie、Token 和账号凭证；
-- 浏览、会议或聊天内容；
-- 完整 Shadowrocket 日志。
+- **自动更新配置**：使用上面的稳定 URL，并在 Shadowrocket 中开启配置自动更新；
+- **接收版本说明**：仓库右上角选择 `Watch → Custom → Releases`；
+- **提交问题或改进**：使用 Issue 或 Pull Request，但不要公开订阅 URL、节点、Cookie、Token、公网 IP 或完整日志。
 
-公开 Issue 和 Pull Request 中也不要提交这些内容。详见 [SECURITY.md](SECURITY.md)。
+Star 用来收藏。Watch 用来提醒。URL 用来更新。
 
-## 自定义
+## 排查与自定义
 
-建议先 Fork，再维护自己的规则。你可以增加国内 `DIRECT` 域名、海外 `PROXY` 服务或团队内部域名，但不要把自己的订阅写进配置。
+- [快速开始与首次验收](docs/zh-cn/quick-start.md)
+- [常见问题排查](docs/zh-cn/troubleshooting.md)
+- [国内实时通信与会议分流](docs/zh-cn/realtime-communications.md)
+- [Fork 后自定义](docs/zh-cn/customization.md)
+- [为什么采用这种设计](docs/zh-cn/design-principles.md)
 
-详见[自定义指南](docs/zh-cn/customization.md)。
+本地文件、iCloud Drive 和 AirDrop 只作为远程 URL 无法使用时的恢复方式，不是默认安装路径。
 
 ## 配置验证
 
-运行结构与隐私检查：
-
 ```bash
 python3 scripts/validate_shadowrocket.py
-```
-
-同时检查远程规则 URL：
-
-```bash
 python3 scripts/validate_shadowrocket.py --network
-```
-
-对照选定的飞书社区数据和腾讯会议官方机器可读防火墙清单，检查实时通信覆盖：
-
-```bash
 python3 scripts/validate_shadowrocket.py --audit-realtime-upstreams
 ```
 
 验证脚本不能替代真实导入和真机流量测试。
 
-## 第三方规则
+## 第三方规则与许可证
 
-配置通过 URL 引用 [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) 的 ChinaMax 及海外服务公开规则集；另从采用 Unlicense 的 [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set) 中选择性整理少量飞书域名，不导入格式不兼容或风险较高的动态媒体 IP 表。详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+配置引用 [`blackmatrix7/ios_rule_script`](https://github.com/blackmatrix7/ios_rule_script) 的固定版本规则，并从采用 Unlicense 的 [`icewithcola/Clash-Rule-Set`](https://github.com/icewithcola/Clash-Rule-Set) 选择性整理少量飞书域名。详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
 
-## 参与贡献
-
-请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。修改规则时，应保留现有优先级并附上验证依据。
-
-你可以通过 Issue 表单提交[分流问题](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=routing-problem.yml)或[规则建议](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=rule-request.yml)。不要粘贴订阅 URL、节点详情、账号凭证或完整流量日志。
-
-## 许可证
-
-配置与仓库代码采用 GPL-2.0。详见 [LICENSE](LICENSE)。DeepWheel 名称与品牌标志单独遵循 [NOTICE.md](NOTICE.md)。
+配置与仓库代码采用 GPL-2.0。DeepWheel 名称与品牌标志单独遵循 [NOTICE.md](NOTICE.md)。
