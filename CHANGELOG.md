@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- 产品展示名升级为`CN Direct by DeepWheel`，以“国内直连。海外照常代理。”作为单一消费者承诺；
+- 新增规范配置路径`configs/shadowrocket/CN-Direct-DeepWheel.conf`，旧Raw路径继续保留且与新文件字节一致，避免已导入用户失效；
+- 将GitHub Raw远程URL设为唯一推荐安装方式，本地文件、iCloud Drive和AirDrop降为恢复手段；
+- 实测GitHub会过滤`shadowrocket://`自定义协议链接，因此移除不可依赖的一键按钮，避免用户点击无响应；
+- 明确配置自动更新的前提：稳定更新地址、Shadowrocket配置后台更新、系统后台App刷新，并说明不保证固定时刻执行；
+- 在配置中内嵌稳定`update-url`，让文件恢复导入也保留更新地址，同时继续把远程URL作为唯一推荐路径；
+- 版本升级为`0.2.0-rc.2`，同步更新manifest、引导、FAQ、视觉和本地兼容性校验；
+- 用锁定ChinaMax快照的124,653条匹配规则、112,138条域名规则和12,436条IP网段说明覆盖体量，同时明确数字不等于App数或完整覆盖保证；
+- 依据macOS Shadowrocket真机界面纠正操作路径：点击配置文件名称后选择“使用配置”“更新”或“预览”，不再误导用户寻找右侧信息符号；
+- 按`lucas-deepwheel-brand-apply`增加所见即所得的安装与更新图示，并完成7组SVG/PNG尺寸及全尺寸人工检查；
+- 完成macOS本地候选的真实导入、启用、国内外冒烟、局域网旁路及手动更新标记验证；系统后台调度与公开Raw仍保留为发布闸门；
+
 - 合并 Mac、iPhone 和公开仓库为唯一 `cn-smart-routing.conf`，设备差异交给 Shadowrocket 本身管理；
 - 通用大陆覆盖从精选 China 规则升级为 ChinaMax，覆盖银行、支付、运营商、影音、游戏、域名和 IP；
 - 去除 ChinaMax 已包含的钉钉、微信、字节、腾讯、网易和 TapTap 重复远程引用，保留关键实时通信显式规则和 Steam 国区补充；

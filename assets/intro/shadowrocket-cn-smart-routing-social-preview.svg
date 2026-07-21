@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
-  <title id="title">Shadowrocket CN Smart Routing GitHub social preview</title>
+  <title id="title">CN Direct by DeepWheel GitHub social preview</title>
   <desc id="desc">中国大陆智能分流：国内办公、网银、影音、游戏和局域网直连，海外 AI 与开发服务跟随首页手动节点代理。</desc>
   <defs>
     <radialGradient id="aura" cx="100%" cy="0%" r="130%">
@@ -25,9 +25,9 @@
   <text x="1196" y="102" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="13" fill="#5C626B" letter-spacing="2.4">OPEN SOURCE · SHADOWROCKET</text>
   <line x1="82" y1="132" x2="1198" y2="132" stroke="#E1E6EE" stroke-width="1"/>
 
-  <text x="86" y="196" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.3">SHADOWROCKET CN SMART ROUTING</text>
-  <text x="86" y="264" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="48" fill="#101722" letter-spacing="-1">代理常开，国内流量不绕路</text>
-  <text x="86" y="314" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="23" fill="#42474F">中国大陆智能分流 · 首页手动选择自己的节点</text>
+  <text x="86" y="196" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.3">CN DIRECT BY DEEPWHEEL · SHADOWROCKET</text>
+  <text x="86" y="264" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="44" fill="#101722" letter-spacing="-1">国内直连。海外照常代理。</text>
+  <text x="86" y="314" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="23" fill="#42474F">安装一次。以后，只选节点。</text>
 
   <rect x="86" y="360" width="590" height="72" rx="14" fill="#F2F5F9"/>
   <text x="112" y="390" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">国内流量</text>

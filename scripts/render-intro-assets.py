@@ -19,6 +19,8 @@ ASSETS = (
     ("cn-smart-routing-hero-zh-CN", (1600, 900)),
     ("cn-smart-routing-workflow-en", (1600, 900)),
     ("cn-smart-routing-workflow-zh-CN", (1600, 900)),
+    ("cn-direct-update-en", (1600, 900)),
+    ("cn-direct-update-zh-CN", (1600, 900)),
     ("shadowrocket-cn-smart-routing-social-preview", (1280, 640)),
 )
 
@@ -109,7 +111,7 @@ def main() -> int:
         return 2
 
     action = "rendered and validated" if args.write else "validated"
-    print(f"PASS: five GitHub introduction assets {action} at their expected dimensions")
+    print(f"PASS: {len(ASSETS)} GitHub introduction assets {action} at their expected dimensions")
     return 0
 
 

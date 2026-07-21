@@ -13,9 +13,20 @@ import urllib.request
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "configs" / "shadowrocket" / "cn-smart-routing.conf"
+CONFIG = ROOT / "configs" / "shadowrocket" / "CN-Direct-DeepWheel.conf"
+LEGACY_CONFIG = ROOT / "configs" / "shadowrocket" / "cn-smart-routing.conf"
 VERSION_FILE = ROOT / "VERSION"
 MANIFEST = ROOT / "manifest.json"
+README_ZH = ROOT / "README.zh-CN.md"
+README_EN = ROOT / "README.md"
+PRODUCT = "CN Direct by DeepWheel"
+CANONICAL_CONFIG_PATH = "configs/shadowrocket/CN-Direct-DeepWheel.conf"
+LEGACY_CONFIG_PATH = "configs/shadowrocket/cn-smart-routing.conf"
+CANONICAL_RAW_URL = (
+    "https://raw.githubusercontent.com/lucaszsGH/"
+    "shadowrocket-cn-smart-routing/main/"
+    f"{CANONICAL_CONFIG_PATH}"
+)
 BLACKMATRIX_COMMIT = "e69663d642551aa3e0164a656179335a896127ad"
 BLACKMATRIX_BASE = (
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/"
@@ -24,6 +35,7 @@ BLACKMATRIX_BASE = (
 FEISHU_REFERENCE_COMMIT = "6baf0076c10bc87b9f9d30221254fdbd97f0f221"
 REQUIRED_SECTIONS = ["General", "Proxy", "Proxy Group", "Rule", "Host"]
 REQUIRED_LINES = {
+    f"update-url = {CANONICAL_RAW_URL}",
     "dns-direct-fallback-proxy = false",
     "udp-policy-not-supported-behaviour = REJECT",
     "block-quic = all-proxy",
@@ -218,11 +230,12 @@ def validate_manifest(config_text: str) -> list[str]:
 
     expected_sha256 = hashlib.sha256(config_text.encode("utf-8")).hexdigest()
     checks = {
+        "manifest product": (manifest.get("product"), PRODUCT),
         "manifest version": (manifest.get("version"), version),
         "manifest channel": (manifest.get("channel"), expected_channel),
         "manifest config path": (
             manifest.get("config", {}).get("path"),
-            "configs/shadowrocket/cn-smart-routing.conf",
+            CANONICAL_CONFIG_PATH,
         ),
         "manifest config sha256": (
             manifest.get("config", {}).get("sha256"),
@@ -236,6 +249,26 @@ def validate_manifest(config_text: str) -> list[str]:
             manifest.get("upstreams", {}).get("icewithcola/Clash-Rule-Set"),
             FEISHU_REFERENCE_COMMIT,
         ),
+        "manifest stable Raw URL": (
+            manifest.get("distribution", {}).get("stable_raw_url"),
+            CANONICAL_RAW_URL,
+        ),
+        "manifest primary installation": (
+            manifest.get("distribution", {}).get("primary_installation"),
+            "remote_url",
+        ),
+        "manifest legacy Raw path": (
+            manifest.get("distribution", {}).get("legacy_raw_path"),
+            LEGACY_CONFIG_PATH,
+        ),
+        "manifest automatic update contract": (
+            manifest.get("distribution", {}).get("automatic_config_update"),
+            "embedded_update_url_requires_shadowrocket_background_update",
+        ),
+        "manifest recommended update interval": (
+            manifest.get("distribution", {}).get("recommended_update_interval_days"),
+            3,
+        ),
     }
     for label, (actual, expected) in checks.items():
         if actual != expected:
@@ -243,6 +276,33 @@ def validate_manifest(config_text: str) -> list[str]:
 
     if f"# 版本：{version}" not in config_text:
         errors.append("config header version does not match VERSION")
+
+    return errors
+
+
+def validate_distribution(config_text: str) -> list[str]:
+    """Validate the one-path install and backwards-compatible update contract."""
+    errors: list[str] = []
+    if not LEGACY_CONFIG.is_file():
+        errors.append(f"missing legacy compatibility path: {LEGACY_CONFIG_PATH}")
+    else:
+        legacy_text = LEGACY_CONFIG.read_text(encoding="utf-8")
+        if legacy_text != config_text:
+            errors.append("legacy config must be byte-identical to canonical config")
+
+    for readme in (README_ZH, README_EN):
+        if not readme.is_file():
+            errors.append(f"missing public README: {readme.name}")
+            continue
+        text = readme.read_text(encoding="utf-8")
+        if CANONICAL_RAW_URL not in text:
+            errors.append(f"{readme.name} does not publish the canonical Raw URL")
+        if CANONICAL_CONFIG_PATH not in text:
+            errors.append(f"{readme.name} does not name the canonical config path")
+        if PRODUCT not in text:
+            errors.append(f"{readme.name} does not use the canonical product name")
+        if re.search(r"\]\(shadowrocket://", text):
+            errors.append(f"{readme.name} must not rely on a GitHub-filtered custom scheme")
 
     return errors
 
@@ -405,6 +465,7 @@ def main() -> int:
     text = CONFIG.read_text(encoding="utf-8")
     errors = validate_static(text)
     errors.extend(validate_manifest(text))
+    errors.extend(validate_distribution(text))
     if args.network:
         errors.extend(validate_network(remote_urls(text)))
     upstream_notes: list[str] = []
@@ -420,6 +481,7 @@ def main() -> int:
     print("PASS: Shadowrocket configuration is structurally valid")
     print("PASS: no bundled nodes or obvious credentials detected")
     print("PASS: manifest version, pinned upstreams and config checksum match")
+    print("PASS: canonical Raw URL and byte-identical legacy update path match")
     if args.network:
         print("PASS: all remote rule URLs are reachable")
     for note in upstream_notes:
