@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">CN Smart Routing 中文 GitHub 介绍</title>
+  <title id="title">CN Direct by DeepWheel 中文 GitHub 介绍</title>
   <desc id="desc">让 Shadowrocket 保持开启，国内办公、支付、视频和游戏优先直连，海外 AI 与开发服务跟随用户手动选择的节点代理。</desc>
   <defs>
     <radialGradient id="aura" cx="100%" cy="0%" r="135%">
@@ -25,9 +25,9 @@
   <text x="1494" y="118" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="13" fill="#5C626B" letter-spacing="2.6">SHADOWROCKET ROUTING</text>
   <line x1="106" y1="158" x2="1494" y2="158" stroke="#E1E6EE" stroke-width="1"/>
 
-  <text x="112" y="226" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.4">CN SMART ROUTING</text>
-  <text x="112" y="294" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="52" fill="#101722" letter-spacing="-1">代理常开，国内流量不绕路</text>
-  <text x="112" y="354" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="28" fill="#42474F">一个透明配置，把国内直连与海外代理分开。</text>
+  <text x="112" y="226" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.4">CN DIRECT BY DEEPWHEEL</text>
+  <text x="112" y="294" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="48" fill="#101722" letter-spacing="-1">国内直连。海外照常代理。</text>
+  <text x="112" y="354" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="28" fill="#42474F">安装一次。以后，只选节点。</text>
 
   <line x1="112" y1="410" x2="880" y2="410" stroke="#E1E6EE" stroke-width="1.5"/>
   <text x="112" y="462" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="18" fill="#101722">国内流量</text>

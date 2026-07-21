@@ -1,11 +1,12 @@
-# CN Smart Routing intro assets
+# CN Direct by DeepWheel intro assets
 
-This folder contains the bilingual GitHub introduction system for CN Smart Routing.
+This folder contains the bilingual GitHub introduction system for CN Direct by DeepWheel.
 
 ## Language pairing
 
 - English README: `cn-smart-routing-hero-en.png` and `cn-smart-routing-workflow-en.png`
 - Chinese README: `cn-smart-routing-hero-zh-CN.png` and `cn-smart-routing-workflow-zh-CN.png`
+- Update guide: `cn-direct-update-en.png` and `cn-direct-update-zh-CN.png`
 
 The SVG files are editable sources. PNG files are exact 1600 × 900 README exports.
 
@@ -14,22 +15,24 @@ GitHub social preview:
 - `shadowrocket-cn-smart-routing-social-preview.svg`
 - `shadowrocket-cn-smart-routing-social-preview.png`
 
-The social preview is an exact 1280 × 640 export for the repository Settings page. It is not embedded in the README.
+The social preview is an exact 1280 × 640 export for the repository Settings page. It is not embedded in the README. Filenames stay unchanged to avoid breaking existing links and search history.
 
 ## Visual roles
 
-- Hero: the consumer value proposition—keep the proxy on, keep mainland traffic direct, and keep node choice manual.
-- Workflow: the only process explanation—import, choose a node, and enable Configuration mode.
-- The hero avoids a mini settings screen, provider logos, fake speed claims and fake network measurements.
+- Hero: the consumer promise—mainland traffic stays direct while overseas traffic follows the selected node.
+- Workflow: the observed Shadowrocket path—remote URL import, tap the configuration filename, choose Use Config, then keep node choice on the home screen.
+- Update guide: enable background updates once; for a manual check, tap the configuration filename, choose Update, then verify with Preview.
+- The UI guidance is redrawn with public labels and contains no screenshots, local IPs, subscriptions, nodes or device data.
+- The hero avoids provider logos, fake speed claims and fake network measurements.
 - Internal panels use hairline outlines only. Decorative shadow is limited to the outer facade card.
 
 ## Consumer contract
 
 - Terminal user: a mainland-China Shadowrocket user who already has a subscription.
 - Use scenario: first visit to the GitHub repository before importing a public configuration.
-- Desired belief: the rules are transparent, mainland-first and independent of the user's nodes.
-- Next action: read the three-step setup, inspect the configuration, and import only after understanding the boundary.
-- Prohibited claim: no promise of zero latency, bank-app acceptance, account-risk avoidance, Apple TV support or automatic iCloud sync.
+- Desired belief: install once through the remote URL, keep node control, and receive future stable config updates through Shadowrocket.
+- Next action: import the stable Raw URL, enable Configuration mode and background config updates, then select a node.
+- Prohibited claim: no promise of zero latency, bank-app acceptance, account-risk avoidance, Apple TV support, automatic iCloud sync or guaranteed background execution.
 
 ## Generation order
 

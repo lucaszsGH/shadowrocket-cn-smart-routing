@@ -30,7 +30,7 @@ body:
     id: version
     attributes:
       label: Configuration version or commit
-      placeholder: 0.1.0-rc.1 or a short Git commit
+      placeholder: 0.2.0 or a short Git commit
     validations:
       required: true
   - type: input

@@ -1,15 +1,20 @@
 {
-  "project": "CN Smart Routing",
-  "version": "0.1.0-rc.1",
+  "project": "CN Direct by DeepWheel",
+  "version": "0.2.0",
   "audience": {
     "terminal_user": "A mainland-China Shadowrocket user who already has a proxy subscription",
     "use_scenario": "Reviewing a public GitHub repository before importing a routing configuration",
-    "desired_belief": "The configuration is transparent, mainland-first, node-independent, and manually controlled",
-    "next_action": "Inspect the three-step setup and import the configuration after understanding the limits"
+    "desired_belief": "Install once by remote URL, keep mainland traffic direct, choose the node manually, and receive future stable config updates through Shadowrocket",
+    "next_action": "Import the stable Raw URL, enable Configuration mode and background config updates, then choose a node from the home screen"
   },
   "consumer_value": [
+    "One recommended remote-URL installation path rather than several competing choices",
     "Mainland and local-network traffic is routed directly",
-    "AI, developer, and unmatched overseas traffic follows the manually selected home-screen node",
+    "Pinned ChinaMax coverage currently contains 124653 matching rules, including 112138 domain rules and 12436 IP ranges",
+    "Critical mainland chat, WSS signaling, meeting, and recording-sync domains are routed directly before the fallback",
+    "AI, developer, overseas-work, and unmatched overseas traffic follows the manually selected home-screen node",
+    "iPhone, iPad, and macOS use the same canonical configuration file",
+    "The config embeds the stable update URL and can receive updates when Shadowrocket background config updates and the required system background permission are enabled",
     "No subscription, node, credential, HTTPS decryption, or automatic country selection is bundled"
   ],
   "must_not_claim": [
@@ -17,7 +22,9 @@
     "Guaranteed acceptance by every banking app",
     "Prevention of account restrictions or platform risk controls",
     "Verified Apple TV support",
-    "Automatic iCloud synchronization"
+    "Automatic iCloud synchronization",
+    "Guaranteed background execution or instant delivery of every update",
+    "The ChinaMax rule count equals an app count or complete coverage guarantee"
   ],
   "public_surfaces": [
     "README.md",
@@ -26,9 +33,12 @@
     "assets/intro/cn-smart-routing-hero-zh-CN.svg",
     "assets/intro/cn-smart-routing-workflow-en.svg",
     "assets/intro/cn-smart-routing-workflow-zh-CN.svg",
+    "assets/intro/cn-direct-update-en.svg",
+    "assets/intro/cn-direct-update-zh-CN.svg",
     "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
     "docs/project-comparison.md",
     "docs/zh-cn/project-comparison.md",
+    "docs/zh-cn/realtime-communications.md",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/routing-problem.yml",
     ".github/ISSUE_TEMPLATE/rule-request.yml"

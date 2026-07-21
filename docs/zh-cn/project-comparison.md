@@ -1,10 +1,10 @@
 # 相似项目与定位对比
 
-最后核对：2026-07-20。
+最后核对：2026-07-21。
 
 这是一份中立的定位对比，不是质量排名。不同项目解决的问题不同；导入前仍应查看各仓库当前 README、许可证和最近变更。
 
-| 项目 | 主要定位 | 它更擅长什么 | CN Smart Routing 的不同 |
+| 项目 | 主要定位 | 它更擅长什么 | CN Direct 的不同 |
 |---|---|---|---|
 | [Johnshall/Shadowrocket-ADBlock-Rules-Forever](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) | 提供多种 Shadowrocket 分流模式和去广告配置 | 模式多、规则变体多、广告过滤能力强 | 本项目只提供一套中国大陆优先配置，默认不启用广告拦截，节点仍由首页手动选择 |
 | [GMOogway/shadowrocket-rules](https://github.com/GMOogway/shadowrocket-rules) | 大规模模块化 `DIRECT`、`PROXY`、`REJECT` 规则 | 适合高级用户自由组合、覆盖广、可叠加覆盖规则 | 本项目更像面向普通用户的成品配置，减少策略组和日常选择，并明确隐私与能力边界 |
@@ -29,4 +29,4 @@
 
 ## 本项目主动接受的取舍
 
-CN Smart Routing 用更少的选择换取更简单、更透明的日常体验，因此不会追求最大规则量和最多功能。它仍依赖上游公开规则，无法保证所有网银 App 在系统 VPN 开启时都不告警，也必须结合每个人的网络和节点做真机验证。
+CN Direct用更少的选择换取更简单的日常体验：通过锁定版本的ChinaMax扩大大陆覆盖，只提供一个成品配置、一个远程更新入口和一个首页手动节点，不提供复杂策略组、脚本或默认广告拦截。它仍依赖上游公开规则，无法保证所有网银App在系统VPN开启时都不告警，也必须结合每个人的网络和节点做真机验证。

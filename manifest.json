@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "product": "CN Direct by DeepWheel",
+  "version": "0.2.0",
+  "channel": "stable",
+  "config": {
+    "path": "configs/shadowrocket/CN-Direct-DeepWheel.conf",
+    "sha256": "947ebfb8376795f7a35ed9f2cd5ce8f7f2428021af57b9f37e49d7deb483655d"
+  },
+  "distribution": {
+    "primary_installation": "remote_url",
+    "stable_raw_url": "https://raw.githubusercontent.com/lucaszsGH/shadowrocket-cn-smart-routing/main/configs/shadowrocket/CN-Direct-DeepWheel.conf",
+    "legacy_raw_path": "configs/shadowrocket/cn-smart-routing.conf",
+    "automatic_config_update": "embedded_update_url_requires_shadowrocket_background_update",
+    "recommended_update_interval_days": 3
+  },
+  "supported_clients": {
+    "shadowrocket_ios": "supported",
+    "shadowrocket_ipados": "supported",
+    "shadowrocket_macos": "supported",
+    "shadowrocket_tvos": "unverified"
+  },
+  "upstreams": {
+    "blackmatrix7/ios_rule_script": "e69663d642551aa3e0164a656179335a896127ad",
+    "icewithcola/Clash-Rule-Set": "6baf0076c10bc87b9f9d30221254fdbd97f0f221"
+  },
+  "security": {
+    "bundled_nodes": false,
+    "subscription_urls": false,
+    "automatic_node_selection": false,
+    "mitm": false,
+    "scripts": false
+  }
+}
