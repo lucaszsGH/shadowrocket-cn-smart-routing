@@ -1,16 +1,33 @@
 # Contributing
 
-欢迎提交兼容性修复、域名补充和文档改进。
+欢迎修正规则、补充公开域名或改进文档。
 
-提交前请：
+![发现问题、提交反馈、自动检查、维护者审核和发布更新的五步流程](assets/intro/cn-direct-contribute-zh-CN.png)
 
-1. 不包含订阅、节点、凭证或完整敏感日志；
-2. 保持`FINAL,PROXY`为最后一条有效规则；
-3. 说明新增规则解决的具体场景；
-4. 运行`python3 scripts/validate_shadowrocket.py`；
-5. 对新增远程规则运行`python3 scripts/validate_shadowrocket.py --network`；
-6. 避免加入未经验证的大型规则集、脚本或HTTPS解密。
+## 最简单的参与方式
 
-正式修改请以`configs/shadowrocket/CN-Direct-DeepWheel.conf`为真源，并同步旧兼容路径`configs/shadowrocket/cn-smart-routing.conf`。校验器会阻止两者不一致，避免已通过旧Raw URL导入的用户中断更新。
+- 只知道哪里不好用：提交[分流问题](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=routing-problem.yml)；
+- 知道要补哪个公开域名：提交[规则建议](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=rule-request.yml)，也可以直接发 Pull Request；
+- 涉及凭证或其他敏感信息：不要公开提交，先看 [SECURITY.md](SECURITY.md)。
 
-涉及银行、支付、登录、会议或游戏的变更，应说明误伤风险和回退方式。
+## 提交 Pull Request
+
+1. 一个 Pull Request 只解决一个问题；
+2. 说明希望它走 `DIRECT` 还是 `PROXY`；
+3. 提供最小、脱敏的验证结果；
+4. 运行 `python3 scripts/validate_shadowrocket.py`。
+
+如果修改了远程规则地址，再运行：
+
+```bash
+python3 scripts/validate_shadowrocket.py --network
+```
+
+## 必须遵守
+
+- 不提交订阅、节点、二维码、账号凭证、个人公网 IP、私有主机名、完整日志或聊天/会议内容；
+- 正式配置以 `configs/shadowrocket/CN-Direct-DeepWheel.conf` 为真源，并同步旧兼容路径 `configs/shadowrocket/cn-smart-routing.conf`；
+- 保持 `FINAL,PROXY` 为最后一条有效规则；
+- 不加入个人 TUN、MITM、脚本、固定节点、自动选区或默认广告拦截；
+- 新增第三方远程规则时说明来源、许可证、用途和回退方式；
+- 涉及银行、支付、登录、会议、游戏或局域网时，说明误伤风险和回退方式。

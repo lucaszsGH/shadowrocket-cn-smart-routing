@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">CN Direct by DeepWheel 社区共创流程</title>
+  <desc id="desc">用户发现分流问题后，只需提交公开服务名和实际现象；项目会经过自动检查、维护者审核，再通过原有更新地址发布配置更新。</desc>
+  <defs>
+    <radialGradient id="aura" cx="100%" cy="0%" r="135%"><stop offset="0%" stop-color="#DFEAF7"/><stop offset="26%" stop-color="#ECF2FB"/><stop offset="55%" stop-color="#F6F9FC"/><stop offset="100%" stop-color="#FBFBFB"/></radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#101722" flood-opacity=".04"/><feDropShadow dx="0" dy="14" stdDeviation="17" flood-color="#101722" flood-opacity=".07"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#aura)"/>
+  <rect x="64" y="64" width="1472" height="772" rx="32" fill="#FFFFFF" filter="url(#cardShadow)"/>
+
+  <g transform="translate(106 81) scale(.30)"><path fill="#101722" d="M37 115V68C37 46 55 28 76 28H153C159 28 162 32 162 38V113C162 135 145 151 124 151H115C111 151 108 148 108 144V130C108 126 111 123 115 123H123C129 123 132 119 132 113V63C132 59 129 56 125 56H79C72 56 67 61 67 68V113C67 116 65 117 62 117H39C38 117 37 116 37 115Z"/><circle cx="87.5" cy="137.5" r="14.99" fill="#0071E3"/></g>
+  <text x="180" y="122" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="22" fill="#101722">Deep<tspan fill="#0071E3">Wheel</tspan></text>
+  <text x="1494" y="118" text-anchor="end" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="600" font-size="13" fill="#5C626B" letter-spacing="2.6">COMMUNITY FLOW</text>
+  <line x1="106" y1="158" x2="1494" y2="158" stroke="#E1E6EE"/>
+
+  <text x="112" y="224" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="14" fill="#5C626B" letter-spacing="2.4">SIMPLE TO REPORT · SAFE TO SHARE</text>
+  <text x="112" y="294" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="46" fill="#101722" letter-spacing="-1">一起把分流做得更好</text>
+  <text x="112" y="344" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="23" fill="#42474F">你只需描述哪里不好用；自动检查和维护者审核负责把关。</text>
+
+  <line x1="368" y1="544" x2="392" y2="544" stroke="#E1E6EE" stroke-width="2"/><path d="M382 536 L392 544 L382 552" fill="none" stroke="#AEB6C2" stroke-width="2"/>
+  <line x1="648" y1="544" x2="672" y2="544" stroke="#E1E6EE" stroke-width="2"/><path d="M662 536 L672 544 L662 552" fill="none" stroke="#AEB6C2" stroke-width="2"/>
+  <line x1="928" y1="544" x2="952" y2="544" stroke="#E1E6EE" stroke-width="2"/><path d="M942 536 L952 544 L942 552" fill="none" stroke="#AEB6C2" stroke-width="2"/>
+  <line x1="1208" y1="544" x2="1232" y2="544" stroke="#E1E6EE" stroke-width="2"/><path d="M1222 536 L1232 544 L1222 552" fill="none" stroke="#AEB6C2" stroke-width="2"/>
+
+  <rect x="112" y="414" width="256" height="260" rx="16" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
+  <text x="136" y="458" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.7">STEP 01</text>
+  <text x="136" y="516" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="26" fill="#101722">发现问题</text>
+  <text x="136" y="562" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">某个网站或 App</text>
+  <text x="136" y="594" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">出现分流异常。</text>
+
+  <rect x="392" y="390" width="256" height="308" rx="16" fill="#FFFFFF" stroke="#0071E3" stroke-width="2"/>
+  <rect x="392" y="390" width="256" height="9" rx="4.5" fill="#0071E3"/>
+  <text x="416" y="442" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#0071E3" letter-spacing="1.7">STEP 02 · 你来完成</text>
+  <text x="416" y="500" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="26" fill="#101722">提交反馈</text>
+  <text x="416" y="546" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">只填公开服务名</text>
+  <text x="416" y="578" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">和实际现象。</text>
+  <rect x="416" y="618" width="208" height="48" rx="24" fill="#F2F5F9"/>
+  <text x="520" y="648" text-anchor="middle" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="15" fill="#101722">提交分流问题</text>
+
+  <rect x="672" y="414" width="256" height="260" rx="16" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
+  <text x="696" y="458" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.7">STEP 03</text>
+  <text x="696" y="516" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="26" fill="#101722">自动检查</text>
+  <text x="696" y="562" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">校验配置结构</text>
+  <text x="696" y="594" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">和更新路径。</text>
+
+  <rect x="952" y="414" width="256" height="260" rx="16" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
+  <text x="976" y="458" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.7">STEP 04</text>
+  <text x="976" y="516" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="26" fill="#101722">维护者审核</text>
+  <text x="976" y="562" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">评估国内使用</text>
+  <text x="976" y="594" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">与隐私风险。</text>
+
+  <rect x="1232" y="414" width="256" height="260" rx="16" fill="#FFFFFF" stroke="#E1E6EE" stroke-width="1.5"/>
+  <text x="1256" y="458" font-family="'Avenir Next','Inter','PingFang SC',sans-serif" font-weight="700" font-size="13" fill="#5C626B" letter-spacing="1.7">STEP 05</text>
+  <text x="1256" y="516" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="26" fill="#101722">发布更新</text>
+  <text x="1256" y="562" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">沿用原有 URL</text>
+  <text x="1256" y="594" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="16" fill="#42474F">获取新版配置。</text>
+
+  <line x1="112" y1="732" x2="1488" y2="732" stroke="#E1E6EE" stroke-width="1.5"/>
+  <text x="112" y="780" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="600" font-size="17" fill="#101722">公开提交前</text>
+  <text x="232" y="780" font-family="'Avenir Next','PingFang SC','Inter',sans-serif" font-weight="400" font-size="17" fill="#42474F">不要上传订阅、节点、二维码、账号或完整日志。</text>
+</svg>
