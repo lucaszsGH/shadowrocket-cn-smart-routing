@@ -21,6 +21,7 @@ ASSETS = (
     ("cn-smart-routing-workflow-zh-CN", (1600, 900)),
     ("cn-direct-update-en", (1600, 900)),
     ("cn-direct-update-zh-CN", (1600, 900)),
+    ("cn-direct-contribute-zh-CN", (1600, 900)),
     ("shadowrocket-cn-smart-routing-social-preview", (1280, 640)),
 )
 

@@ -2,6 +2,8 @@
 
 欢迎修正规则、补充公开域名或改进文档。
 
+![发现问题、提交反馈、自动检查、维护者审核和发布更新的五步流程](assets/intro/cn-direct-contribute-zh-CN.png)
+
 ## 最简单的参与方式
 
 - 只知道哪里不好用：提交[分流问题](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/issues/new?template=routing-problem.yml)；

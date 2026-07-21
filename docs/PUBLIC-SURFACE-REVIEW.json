@@ -26,6 +26,11 @@
     "Guaranteed background execution or instant delivery of every update",
     "The ChinaMax rule count equals an app count or complete coverage guarantee"
   ],
+  "community_contribution": {
+    "terminal_user": "A user reporting a public routing problem or proposing a public rule improvement",
+    "desired_action": "Describe the public service and observed problem without sharing subscriptions, nodes, credentials, personal IP addresses or full logs",
+    "project_response": "Run automated checks, complete maintainer review, and publish accepted changes through the existing stable update URL"
+  },
   "public_surfaces": [
     "README.md",
     "README.zh-CN.md",
@@ -35,6 +40,7 @@
     "assets/intro/cn-smart-routing-workflow-zh-CN.svg",
     "assets/intro/cn-direct-update-en.svg",
     "assets/intro/cn-direct-update-zh-CN.svg",
+    "assets/intro/cn-direct-contribute-zh-CN.svg",
     "assets/intro/shadowrocket-cn-smart-routing-social-preview.svg",
     "docs/project-comparison.md",
     "docs/zh-cn/project-comparison.md",
