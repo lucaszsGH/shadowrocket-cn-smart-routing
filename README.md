@@ -2,10 +2,10 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-Status: release candidate. Current version: `0.2.0-rc.2`.
+Status: stable. Current version: `0.2.0`.
 
 [![Validate Shadowrocket config](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml/badge.svg)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/actions/workflows/validate.yml)
-[![Latest release](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?include_prereleases&label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
+[![Latest stable release](https://img.shields.io/github/v/release/lucaszsGH/shadowrocket-cn-smart-routing?label=release)](https://github.com/lucaszsGH/shadowrocket-cn-smart-routing/releases)
 [![GPL-2.0 license](https://img.shields.io/github/license/lucaszsGH/shadowrocket-cn-smart-routing)](LICENSE)
 
 An open-source **Shadowrocket configuration for mainland China**. Mainland office tools, banking, payments, media, games and local-network traffic stay direct, while ChatGPT, Claude, Gemini, GitHub and other overseas services follow the node you select on the Shadowrocket home screen.
