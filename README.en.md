@@ -26,6 +26,14 @@ Click **Star** in the repository header to save the project and help more mainla
 
 The pinned snapshot also contains **112,138 domain/domain-suffix rules** and **12,436 mainland IP ranges**. These figures measure matching volume; they do not equal app counts or guarantee zero latency. [Inspect the pinned evidence](https://github.com/blackmatrix7/ios_rule_script/blob/e69663d642551aa3e0164a656179335a896127ad/rule/Shadowrocket/ChinaMax/README.md).
 
+## Need Shadowrocket?
+
+**[Download it from the US App Store (recommended)](https://apps.apple.com/us/app/shadowrocket/id932747118)**
+
+Already use a Hong Kong Apple Account? [Open the Hong Kong App Store listing](https://apps.apple.com/hk/app/shadowrocket/id932747118).
+
+The same official app supports iPhone, iPad and Mac. It is not currently listed in the Chinese mainland App Store. Use an Apple Account you personally control for the matching region; do not use shared accounts or unofficial installation packages.
+
 ## One setup path
 
 ### 1. Prepare your own node
