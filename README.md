@@ -52,6 +52,14 @@ CN Direct 不让你再做这道选择题：
 
 CN Direct 不追求规则版本最多、广告拦截最强或客户端最多。它选择的是：**一份配置、一条入口、更少日常操作**。[查看完整定位对比](docs/zh-cn/project-comparison.md)。
 
+## 还没有 Shadowrocket？
+
+**[前往美区 App Store 下载（推荐）](https://apps.apple.com/us/app/shadowrocket/id932747118)**
+
+已有港区 Apple ID？[使用港区 App Store 下载](https://apps.apple.com/hk/app/shadowrocket/id932747118)。
+
+同一个官方应用支持 iPhone、iPad 和 Mac。中国大陆区 App Store 当前未上架，请使用本人合法持有的对应地区 Apple 账号；不要使用共享账号或来历不明的安装包。
+
 ## 三步装好
 
 ### 1. 准备自己的节点
